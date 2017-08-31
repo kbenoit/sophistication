@@ -13,20 +13,17 @@ output:
 
 ## Code for use in measuring the sophistication of political text
 
-"Measuring and Explaining Political Sophistication Through Textual Complexity" by Kenneth Benoit, Kevin Munger, and Arthur Spirling.  This package is built on [**quanteda**](https://github.com/kbenoit/quanteda), whose namespace it imports.
+"Measuring and Explaining Political Sophistication Through Textual Complexity" by Kenneth Benoit, Kevin Munger, and Arthur Spirling.  This package is built on [**quanteda**](http://quanteda.io).
 
 ### How to install
 
 Two methods:
 
-1.  Install using **devtools** directly from GitHub, you will need to generate a personal access token (PAT) in https://github.com/settings/tokens and supply it as below: (you should, preferably, use your own!)  
-    ```{r, eval = FALSE}
-    devtools::install_github("kbenoit/sophistication", subdir = "R_package",
-                             auth_token = "309171976db5586eab402a922604229cd5190c81")
-    ```
+Using the **devtools** package:
+```{r, eval = FALSE}
+devtools::install_github("kbenoit/sophistication")
+```
                               
-2.  Pull the repo into your project, and choose "**Build & Reload**" from the **Build** tab of the Build pane in RStudio.
-
 
 ### Included Data
 
@@ -43,7 +40,7 @@ new name | original name | description
 ### How to use
 
 ```{r}
-require(sophistication)
+library("sophistication")
 
 # make the snipepts of one sentence, between 100-350 chars in length
 snippetData <- snippets_make(data_corpus_SOTU, nsentence = 1, minchar = 150, maxchar = 250)
@@ -66,7 +63,9 @@ snippetPairsAll <- pairs_regular_make(snippetData[sample(1:nrow(snippetData), 10
 # make 10 gold from these
 pairs_gold_make(snippetPairsAll, n.pairs = 10)
 ```
-   
+
+There is a lot more than this, of course, but documentation is still pretty thin.
+
     
 
     

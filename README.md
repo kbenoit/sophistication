@@ -7,20 +7,17 @@
 Code for use in measuring the sophistication of political text
 --------------------------------------------------------------
 
-"Measuring and Explaining Political Sophistication Through Textual Complexity" by Kenneth Benoit, Kevin Munger, and Arthur Spirling. This package is built on [**quanteda**](https://github.com/kbenoit/quanteda), whose namespace it imports.
+"Measuring and Explaining Political Sophistication Through Textual Complexity" by Kenneth Benoit, Kevin Munger, and Arthur Spirling. This package is built on [**quanteda**](http://quanteda.io).
 
 ### How to install
 
 Two methods:
 
-1.  Install using **devtools** directly from GitHub, you will need to generate a personal access token (PAT) in <https://github.com/settings/tokens> and supply it as below: (you should, preferably, use your own!)
+Using the **devtools** package:
 
-    ``` r
-    devtools::install_github("kbenoit/sophistication", subdir = "R_package",
-                             auth_token = "309171976db5586eab402a922604229cd5190c81")
-    ```
-
-2.  Pull the repo into your project, and choose "**Build & Reload**" from the **Build** tab of the Build pane in RStudio.
+``` r
+devtools::install_github("kbenoit/sophistication")
+```
 
 ### Included Data
 
@@ -35,10 +32,24 @@ Two methods:
 ### How to use
 
 ``` r
-require(sophistication)
+library("sophistication")
 ```
 
-    ## Loading required package: sophistication
+    ## Loading required package: quanteda
+
+    ## quanteda version 0.99.1
+
+    ## Using 4 of 8 threads for parallel computing
+
+    ## 
+    ## Attaching package: 'quanteda'
+
+    ## The following object is masked from 'package:utils':
+    ## 
+    ##     View
+
+    ## sophistication version 0.56
+    ## Dropbox folder location set to: ~/Dropbox/Papers/Benoit_Spirling_Readability/
 
 ``` r
 # make the snipepts of one sentence, between 100-350 chars in length
@@ -47,7 +58,7 @@ snippetData <- snippets_make(data_corpus_SOTU, nsentence = 1, minchar = 150, max
 snippetData <- snippets_clean(snippetData)
 ```
 
-    ## Cleaning 17,050 snippets...
+    ## Cleaning 17,051 snippets...
 
     ##    removed 990 snippets containing numbers of at least 1,000
 
@@ -64,26 +75,26 @@ testData <- snippetData[sample(1:nrow(snippetData), 5), ]
 (snippetPairsMST <- pairs_regular_make(testData))
 ```
 
-    ##                                                                                                                                                                                                                                text1
-    ## 1 It is true we may suffer in such cases less than other communities, but all nations are damaged more or less by the state of uneasiness and apprehension into which an outbreak of hostilities throws the entire commercial world.
-    ## 2                                               The sincere desire for peace by which I am animated led me to approve the proposal, already made, to submit the question which had thus arisen between the countries to arbitration.
-    ## 3                                  This course has borne rich fruit in the past, and it is our duty as a nation to preserve the heritage of good repute which a century of right dealing with foreign governments has secured to us.
-    ## 4                                                              It will ever be recognized that their welfare is of the first concern and always entitled to the most solicitous consideration oil the part of their fellow citizens.
-    ##          docID1 snippetID1
-    ## 1 McKinley-1898   11000461
-    ## 2  Johnson-1865    7700232
-    ## 3 Harrison-1889   10100007
-    ## 4 Coolidge-1924   13600210
+    ##                                                                                                                                                                                                                         text1
+    ## 1                               This purpose can probably best be accomplished by an international agreement to regard all private property at sea as exempt from capture or destruction by the forces of belligerent powers.
+    ## 2                                        The sincere desire for peace by which I am animated led me to approve the proposal, already made, to submit the question which had thus arisen between the countries to arbitration.
+    ## 3                           This course has borne rich fruit in the past, and it is our duty as a nation to preserve the heritage of good repute which a century of right dealing with foreign governments has secured to us.
+    ## 4 The attitude which our Government took and maintained toward an adjustment of European reparations, by pointing out that it wits not a political but a business problem, has demonstrated its wisdom by its actual results.
+    ##          docID1 snippetID1 completeSet1
+    ## 1 McKinley-1898   11000463         TRUE
+    ## 2  Johnson-1865    7700232         TRUE
+    ## 3 Harrison-1889   10100007         TRUE
+    ## 4 Coolidge-1924   13600217         TRUE
     ##                                                                                                                                                                                                                                      text2
     ## 1                                                     The sincere desire for peace by which I am animated led me to approve the proposal, already made, to submit the question which had thus arisen between the countries to arbitration.
     ## 2                                        This course has borne rich fruit in the past, and it is our duty as a nation to preserve the heritage of good repute which a century of right dealing with foreign governments has secured to us.
-    ## 3                                                                    It will ever be recognized that their welfare is of the first concern and always entitled to the most solicitous consideration oil the part of their fellow citizens.
+    ## 3              The attitude which our Government took and maintained toward an adjustment of European reparations, by pointing out that it wits not a political but a business problem, has demonstrated its wisdom by its actual results.
     ## 4 Renewed authority has been asked for by the representative of Austria, and in the mean time the rapidly increasing trade and navigation between the two countries have been placed upon the most liberal footing of our navigation acts.
-    ##          docID2 snippetID2
-    ## 1  Johnson-1865    7700232
-    ## 2 Harrison-1889   10100007
-    ## 3 Coolidge-1924   13600210
-    ## 4  Jackson-1830    4200087
+    ##          docID2 snippetID2 completeSet2
+    ## 1  Johnson-1865    7700232         TRUE
+    ## 2 Harrison-1889   10100007         TRUE
+    ## 3 Coolidge-1924   13600217         TRUE
+    ## 4  Jackson-1830    4200087         TRUE
 
 We can also use the package function to generate "gold" questions based on readability differences:
 
@@ -100,75 +111,77 @@ pairs_gold_make(snippetPairsAll, n.pairs = 10)
 
     ##    selecting top different 10 pairs
 
-    ##    applying min.diff.quantile thresholds of 2.23, 33.29
+    ##    applying min.diff.quantile thresholds of 2.91, 33.92
 
     ##    creating gold_reason text
 
     ##    ...finished.
 
     ##                                                                                                                                                                                                                                     text1
-    ## 1                              And considerations equally cogent require a more convenient organization of the subordinate tribunals, which may be accomplished without an objectionable increase of the number or expense of the judges.
-    ## 2                                                                          The work is so far advanced now that the health of all those employed in canal work is as well guarded as it is on similar work in this country and elsewhere.
-    ## 3                                                                                The killing fields of Iraq, where hundreds of thousands of men and women and children vanished into the sands, would still be known only to the killers.
+    ## 1                On this whole proposition, including the appropriation of money with the acquisition of territory, does not the expediency amount to absolute necessity-that without which the Government itself can not be perpetuated?
+    ## 2         The second object of a proper immigration law ought to be to secure by a careful and not merely perfunctory educational test some intelligent capacity to appreciate American institutions and act sanely as American citizens.
+    ## 3           Duties were levied on certain commodities which are included in the reciprocity treaty now existing between the United States and the Kingdom of Hawaii, without indicating the necessary exception in favor of that Kingdom.
     ## 4  The envoy extraordinary and minister plenipotentiary of the United States to Mexico has been received and accredited, and a diplomatic representative from Mexico of similar rank has been received and accredited by this Government.
-    ## 5         The second object of a proper immigration law ought to be to secure by a careful and not merely perfunctory educational test some intelligent capacity to appreciate American institutions and act sanely as American citizens.
-    ## 6              There are many administrative subjects, such as departmental reorganization, extension of the civil service, readjustment of the postal rates, etc., which at some appropriate time require the attention of the Congress.
-    ## 7                                                                              Among the payments those made in discharge of the principal and interest of the national debt will shew that the public faith has been exactly maintained.
-    ## 8                        With a supply of finished guns of large caliber already on hand, to which additions should now rapidly follow, the wisdom of providing carriages and emplacements for their mount can not be too strongly urged.
-    ## 9                                                      These facts were known in Paris prior to the 28th of March, 1835, when the committee to whom the bill of indemnification had been referred reported it to the Chamber of Deputies.
-    ## 10                The extensive complications involved by the requirement of dealing with three other governments engaged in occupation and with the governments of liberated countries require intensive work and energetic cooperation.
-    ##            docID1 snippetID1
-    ## 1    Madison-1816    2800049
-    ## 2  Roosevelt-1905   11700771
-    ## 3       Bush-2004   21800099
-    ## 4       Polk-1848    6000025
-    ## 5  Roosevelt-1901   11300174
-    ## 6     Hoover-1930   14200149
-    ## 7  Jefferson-1801    1300045
-    ## 8  Cleveland-1894   10600170
-    ## 9    Jackson-1835    4700112
-    ## 10    Truman-1946   15700258
-    ##                                                                                                                                                                                                                                                        text2
-    ## 1                                                                                   The cavalry is much more difficult to form than infantry, and it should be kept up to the maximum both in efficiency and in strength, for it can not be made in a hurry.
-    ## 2  Such information points out the way to a prudent foresight in the selection and cultivation of crops and to a release from the bondage of unreasoning monotony of production, a glutted and depressed market, and constantly recurring unprofitable toil.
-    ## 3                                                The customs receipts have decreased owing to disturbed political and economic conditions and to a very natural curtailment of imports in view of the anticipated revision of the Dominican tariff schedule.
-    ## 4                                                                                  I believe that the scheme would be of economic advantage, for the robe of the buffalo is of high market value, and the same is true of the robe of the crossbred animals.
-    ## 5                                                                 This liberal enlargement of the general law should suggest a more careful scrutiny of bills for special relief, both as to the cases where relief is granted and as to the amount allowed.
-    ## 6                                                         We must face accomplished facts, and the adjustment of factory conditions must be made, but surely it can be made with less friction and less harmful effects on family life than is now the case.
-    ## 7                                                        As the Shuttle development phases down, however, there will be added flexibility to consider new space applications, space science and new space exploration activities.  - Technology Development.
-    ## 8                     The envoy extraordinary and minister plenipotentiary of the United States to Mexico has been received and accredited, and a diplomatic representative from Mexico of similar rank has been received and accredited by this Government.
-    ## 9             Reluctant to credit the reports in general circulation as to the quantity of gold, the officer commanding our forces in California visited the mineral district in July last for the purpose of obtaining accurate information on the subject.
-    ## 10                                                                                        The rules adopted to improve the civil service of the Government have been adhered to as closely as has been practicable with the opposition with which they meet.
-    ##            docID2 snippetID2      read1     read2  readdiff _golden
-    ## 1  Roosevelt-1908   12000583  2.3655172 57.866176 -55.50066    TRUE
-    ## 2  Cleveland-1896   10800331 68.6050000 17.573077  51.03192    TRUE
-    ## 3       Taft-1909   12100090 63.4966667  8.899032  54.59763    TRUE
-    ## 4  Roosevelt-1905   11700632 -6.8279412 55.412727 -62.24067    TRUE
-    ## 5   Harrison-1890   10200177 -5.1414286 45.158182 -50.29961    TRUE
-    ## 6  Roosevelt-1905   11700164  0.7119355 52.870000 -52.15806    TRUE
-    ## 7     Carter-1981   19400523 56.7988462 -1.770385  58.56923    TRUE
-    ## 8       Polk-1848    6000025 40.7842857 -6.827941  47.61223    TRUE
-    ## 9       Polk-1848    6000110 55.3862500  5.743947  49.64230    TRUE
-    ## 10     Grant-1874    8600247 -3.4689655 48.493571 -51.96254    TRUE
-    ##    easier_gold
-    ## 1            2
-    ## 2            1
-    ## 3            1
-    ## 4            2
-    ## 5            2
-    ## 6            2
-    ## 7            1
-    ## 8            1
-    ## 9            1
-    ## 10           2
+    ## 5                                                                        But again and again in the past our little Regular Army has rendered service literally vital to the country, and it may at any time have to do so in the future.
+    ## 6                                                                               Right now, because of loopholes and shelters in the tax code, a quarter of all millionaires pay lower tax rates than millions of middle-class households.
+    ## 7                   This propinquity, community of language and occupation, and similarity of political and social institutions indicate the practicability and obvious wisdom of maintaining mutually beneficial and friendly relations.
+    ## 8                                                                          The present rulers of the Soviet Union have shown that they are willing to use this power to destroy the free nations and win domination over the whole world.
+    ## 9                                                            While uncertain of the course of things, the time may be advantageously employed in obtaining the powers necessary for a system of improvement, should that be thought best.
+    ## 10                                                           And if with less money, or money more easily paid, we can preserve the benefits of the Union by this means than we can by the war alone, is it not also economical to do it?
+    ##            docID1 snippetID1 completeSet1
+    ## 1    Lincoln-1861    7300140         TRUE
+    ## 2  Roosevelt-1901   11300174         TRUE
+    ## 3   Harrison-1890   10200059         TRUE
+    ## 4       Polk-1848    6000025         TRUE
+    ## 5  Roosevelt-1907   11900651         TRUE
+    ## 6      Obama-2012   22600292         TRUE
+    ## 7  Cleveland-1886    9800027         TRUE
+    ## 8     Truman-1951   16200040         TRUE
+    ## 9  Jefferson-1808    2000063         TRUE
+    ## 10   Lincoln-1862    7400198         TRUE
+    ##                                                                                                                                                                                                                                                text2
+    ## 1                                                                                       And we are discussing with a number of our area friends further ways we can help to improve their security and ours, both for the short and the longer term.
+    ## 2                                                         This liberal enlargement of the general law should suggest a more careful scrutiny of bills for special relief, both as to the cases where relief is granted and as to the amount allowed.
+    ## 3                                                                                Working by these guide lines I believe with all my heart that America can be as sure of the strength and efficiency of her armed forces as she is of their loyalty.
+    ## 4                                                                          I believe that the scheme would be of economic advantage, for the robe of the buffalo is of high market value, and the same is true of the robe of the crossbred animals.
+    ## 5  We are supporting the Pan American efforts that are being made toward the codification of international law, and looking with sympathy oil the investigations conducted under philanthropic auspices of the proposal to agreements outlawing war.
+    ## 6                               Americans also want a good material standard of living--not simply to accumulate possessions, but to fulfill a legitimate aspiration for an environment in which their families may live meaningful and happy lives.
+    ## 7                                        The field designated is unquestionably one of interest and one capable of large development of commercial interests-advantageous to the peoples reached and to those who may establish relations with them.
+    ## 8                                                                         I also renew my recommendation in favor of legislation affording just copyright protection to foreign authors on a footing of reciprocal advantage for our authors abroad.
+    ## 9                                                      We restored the vital center, replacing outmoded ideologies with a new vision anchored in basic, enduring values: opportunity for all, responsibility from all, a community of all Americans.
+    ## 10                                                               In a desire to eliminate all possibilities of injustice due to difficulties in establishing service connection of disabilities, these principles have been to some degree extended.
+    ##             docID2 snippetID2 completeSet2      read1     read2  readdiff
+    ## 1      Carter-1981   19400975         TRUE  -0.132500 55.125000 -55.25750
+    ## 2    Harrison-1890   10200177         TRUE  -5.141429 45.158182 -50.29961
+    ## 3  Eisenhower-1959   17100068         TRUE   8.101471 60.673750 -52.57228
+    ## 4   Roosevelt-1905   11700632         TRUE  -6.827941 55.412727 -62.24067
+    ## 5    Coolidge-1925   13700157         TRUE  47.455000 -2.724286  50.17929
+    ## 6  Eisenhower-1955   16700222         TRUE  63.306538 11.830909  51.47563
+    ## 7       Grant-1874    8600170         TRUE -36.770000 25.273226 -62.04323
+    ## 8    Harrison-1890   10200312         TRUE  54.875862  7.991154  46.88471
+    ## 9     Clinton-2000   21400014         TRUE  45.472143 -2.870714  48.34286
+    ## 10     Hoover-1929   14100333         TRUE  52.795000  1.483462  51.31154
+    ##    _golden easier_gold
+    ## 1     TRUE           2
+    ## 2     TRUE           2
+    ## 3     TRUE           2
+    ## 4     TRUE           2
+    ## 5     TRUE           1
+    ## 6     TRUE           1
+    ## 7     TRUE           2
+    ## 8     TRUE           1
+    ## 9     TRUE           1
+    ## 10    TRUE           1
     ##                                                                                                                                                                                                      easier_gold_reason
     ## 1  Text B is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
-    ## 2  Text A is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
-    ## 3  Text A is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
+    ## 2  Text B is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
+    ## 3  Text B is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
     ## 4  Text B is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
-    ## 5  Text B is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
-    ## 6  Text B is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
-    ## 7  Text A is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
+    ## 5  Text A is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
+    ## 6  Text A is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
+    ## 7  Text B is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
     ## 8  Text A is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
     ## 9  Text A is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
-    ## 10 Text B is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
+    ## 10 Text A is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
+
+There is a lot more than this, of course, but documentation is still pretty thin.
