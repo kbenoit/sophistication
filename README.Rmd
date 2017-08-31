@@ -4,6 +4,10 @@ output:
     variant: markdown_github
 ---
 
+```{r echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "##")
+```
+
 <!--
 [![CRAN Version](http://www.r-pkg.org/badges/version/sophistication)](http://cran.r-project.org/package=sophistication)
 ![Downloads](http://cranlogs.r-pkg.org/badges/sophistication)
@@ -16,8 +20,6 @@ output:
 "Measuring and Explaining Political Sophistication Through Textual Complexity" by Kenneth Benoit, Kevin Munger, and Arthur Spirling.  This package is built on [**quanteda**](http://quanteda.io).
 
 ### How to install
-
-Two methods:
 
 Using the **devtools** package:
 ```{r, eval = FALSE}
