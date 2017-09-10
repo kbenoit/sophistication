@@ -1,0 +1,68 @@
+\begin{thebibliography}{xx}
+
+\harvarditem[Benoit et~al.]{Benoit, Conway, Lauderdale, Laver \harvardand\
+  Mikhaylov}{2016}{Benoitetal2016}
+Benoit, Kenneth, Drew Conway, Benjamin Lauderdale, Michael Laver \harvardand\
+  Slava Mikhaylov. 2016.
+\newblock ``Crowd-Sourced Text Analysis: Reproducible and Agile Production of
+  Political Data.'' {\em American Political Science Review} 110(2).
+
+\harvarditem[Berinsky, Margolis \harvardand\ Sances]{Berinsky, Margolis
+  \harvardand\ Sances}{2014}{berinsky2014separating}
+Berinsky, Adam~J, Michele~F Margolis \harvardand\ Michael~W Sances. 2014.
+\newblock ``Separating the shirkers from the workers? Making sure respondents
+  pay attention on self-administered surveys.'' {\em American Journal of
+  Political Science} 58(3):739--753.
+
+\harvarditem{Bradley \harvardand\ Terry}{1952}{BradleyTerry52}
+Bradley, Ralph \harvardand\ Milton Terry. 1952.
+\newblock ``Rank Analysis of Incomplete Block Designs: I. The Method of Paired
+  Comparisons.'' {\em Biometrika} 39(3/4):324--345.
+
+\harvarditem{Breiman}{2001}{Breiman2001}
+Breiman, Leo. 2001.
+\newblock ``Random Forests.'' {\em Machine Learning} 45(1):5--32.
+
+\harvarditem{Coleman \harvardand\ Liau}{1975}{ColemanLiau75}
+Coleman, M \harvardand\ T Liau. 1975.
+\newblock ``A computer readability formula designed for machine scoring.'' {\em
+  Journal of Applied Psychology} 60(2):283--284.
+
+\harvarditem{Firth}{1993}{Firth93}
+Firth, David. 1993.
+\newblock ``Bias Reduction of Maximum Likelihood Estimates.'' {\em Biometrika}
+  80(1):27--38.
+
+\harvarditem{Flesch}{1948}{Flesch48}
+Flesch, Rudolph. 1948.
+\newblock ``A new readability yardstick.'' {\em Journal of Applied Psychology}
+  32(3):221--233.
+
+\harvarditem{Liaw \harvardand\ Wiener}{2002}{LiawWiener02}
+Liaw, Andy \harvardand\ Matthew Wiener. 2002.
+\newblock ``Classification and Regression by randomForest.'' {\em R News}
+  2(3):18--22.
+\newline\harvardurl{http://CRAN.R-project.org/doc/Rnews/}
+
+\harvarditem{Lowe \harvardand\ Benoit}{2013}{LoweBenoit13}
+Lowe, Will \harvardand\ Kenneth Benoit. 2013.
+\newblock ``Validating Estimates of Latent Traits from Textual Data Using Human
+  Judgment as a Benchmark.'' {\em Political Analysis} 21(3):298--313.
+
+\harvarditem{McCullagh \harvardand\ Nelder}{1989}{McCullaghNelder89}
+McCullagh, Peter \harvardand\ John Nelder. 1989.
+\newblock {\em Generalized linear models}.
+\newblock New York:  CRC press.
+
+\harvarditem{Tr{\"a}nkle \harvardand\ Bailer}{1984}{traenklebailer:1984}
+Tr{\"a}nkle, U. \harvardand\ H. Bailer. 1984.
+\newblock ``Kreuzvalidierung und Neuberechnung von Lesbarkeitsformeln f{\"u}r
+  die deutsche Sprache.'' {\em Zeitschrift f{\"{\"u}}r Entwicklungspsychologie
+  und P{\"a}dagogische Psychologie} 16(3):231--244.
+
+\harvarditem{Turner \harvardand\ Firth}{2012}{TurnerFirth12}
+Turner, Heather \harvardand\ David Firth. 2012.
+\newblock ``Bradley-Terry Models in R: The BradleyTerry2 Package.'' {\em
+  Journal of Statistical Software} 48(1):1--21.
+
+\end{thebibliography}

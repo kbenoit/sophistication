@@ -1,0 +1,15 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: BenoitMungerSpirling_SSRCchapter.aux
+The style file: apsr.bst
+White space in argument---line 59 of file BenoitMungerSpirling_SSRCchapter.aux
+ : \bibdata{../bibliographies/anxbib,../bibliographies/BMS\protect
+ :                                                                 \global \let \OT1\textunderscore \unhbox \voidb@x \kern .06em\vbox {\hrule width.3em}\OT1\textunderscore readability}
+I'm skipping whatever remains of this command
+Database file #1: ../bibliographies/anxbib.bib
+Warning--I didn't find a database entry for "lowebenoit2013"
+Warning--I didn't find a database entry for "Jansen11"
+Warning--I didn't find a database entry for "OwensWedeking11"
+Warning--I didn't find a database entry for "spriggs:1996"
+Warning--I didn't find a database entry for "diamond:2002"
+Warning--I didn't find a database entry for "kristof:2014"
+Warning--I didn't find a database entry for "CannGoelzhauserJohnson14"
+(There was 1 error message)
