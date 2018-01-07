@@ -13,7 +13,7 @@ snippets_clean(x, readability.limits = NULL, verbose = TRUE, ...)
 
 \item{verbose}{if \code{TRUE} output status messages}
 
-\item{...}{additional arguments passed to \link[quanteda]{readability}, such as `measure`}
+\item{...}{additional arguments passed to \link[quanteda]{textstat_readability}, such as `measure`}
 }
 \description{
 Remove snippets that have unusual text, such as numbers.

@@ -32,9 +32,10 @@ fields \code{text}, \code{docID}, and \code{snippetID}}
 is \code{"text"}}
 
 \item{readability_measure}{additional readability measures passed through in
-the \code{measure} argument passed to \link[quanteda]{readability}. Because
-our standard input will be constituent elements rather than indexes, this
-defaults to \code{NULL} indicating that no compound measures will be used.}
+the \code{measure} argument passed to
+\link[quanteda]{textstat_readability}. Because our standard input will be
+constituent elements rather than indexes, this defaults to \code{NULL}
+indicating that no compound measures will be used.}
 
 \item{normalize}{if \code{TRUE}, return proportions of words/sentences as
 appropriate, instead of raw counts}

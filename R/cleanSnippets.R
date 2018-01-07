@@ -4,7 +4,7 @@
 #' Remove snippets that have unusual text, such as numbers.
 #' @param x snippet data created by \code{\link{snippets_make}}
 #' @param readability.limits Two-element numeric vector used to filter out snippets based on readability scores.  Any snippets with values outside this range will be dropped.
-#' @param ... additional arguments passed to \link[quanteda]{readability}, such as `measure`
+#' @param ... additional arguments passed to \link[quanteda]{textstat_readability}, such as `measure`
 #' @param verbose if \code{TRUE} output status messages
 #' @importFrom quanteda textstat_readability
 #' @export

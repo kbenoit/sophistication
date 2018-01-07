@@ -13,7 +13,7 @@ pairs_gold_make(x, n.pairs, metric = "Flesch", min.diff.quantile = c(0.1,
 
 \item{n.pairs}{how many gold pairs to form}
 
-\item{metric}{measure from \code{\link[quanteda]{readability}} to use to
+\item{metric}{measure from \code{\link[quanteda]{textstat_readability}} to use to
 compute difference, default is \code{"Flesch"}}
 
 \item{min.diff.quantile}{use this quantile range of difference in the metric

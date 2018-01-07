@@ -21,7 +21,7 @@
 #' @return a data.frame suitable for adding to variates for analysis by
 #'   \link[BradleyTerry2]{BTm}
 #' @importFrom utils read.csv
-#' @importFrom quanteda tokenize
+#' @importFrom quanteda tokens
 #' @export
 #' @examples
 #' txt <- c(d1 = quanteda::data_char_sampletext,

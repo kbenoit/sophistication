@@ -6,9 +6,10 @@
 #' @param x snippet data from \code{\link{snippets_make}} consisting of the
 #'   fields \code{text}, \code{docID}, and \code{snippetID}
 #' @param readability_measure additional readability measures passed through in
-#'   the \code{measure} argument passed to \link[quanteda]{readability}. Because
-#'   our standard input will be constituent elements rather than indexes, this
-#'   defaults to \code{NULL} indicating that no compound measures will be used.
+#'   the \code{measure} argument passed to
+#'   \link[quanteda]{textstat_readability}. Because our standard input will be
+#'   constituent elements rather than indexes, this defaults to \code{NULL}
+#'   indicating that no compound measures will be used.
 #' @param text_field the name of the text field, if a \link{data.frame}, default
 #'   is \code{"text"}
 #' @param normalize if \code{TRUE}, return proportions of words/sentences as
@@ -370,7 +371,7 @@ readability_internal <-
     }
 
     #     if (any(c("all", "TRI") %in% measure)) {
-    #         Ptn <- lengths(tokenize(x, removePunct = FALSE)) - lengths(tokenizedWords)
+    #         Ptn <- lengths(tokenize(x, remove_punct = FALSE)) - lengths(tokenizedWords)
     #         Frg <- NA  # foreign words -- cannot compute without a dictionary
     #         textFeatures[, TRI := (0.449 * W_1Sy) - (2.467 * Ptn) - (0.937 * Frg) - 14.417]
     #     }
@@ -421,7 +422,7 @@ scrabble.character <- function(x, FUN = sum) {
                              values = rep(c(1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10), 2))
     setkey(letterVals, letter)
 
-    textChars <- tokenize(x, what = "character", removePunct = TRUE)
+    textChars <- tokens(x, what = "character", remove_punct = TRUE)
     textDT <- data.table(docIndex = rep(1:length(textChars), lengths(textChars)),
                          Char = unlist(textChars, use.names = FALSE))
     setkey(textDT, Char)

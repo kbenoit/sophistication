@@ -4,7 +4,7 @@
 #' readability is the most different between pairs.
 #' @param x snippet pairs
 #' @param n.pairs how many gold pairs to form
-#' @param metric measure from \code{\link[quanteda]{readability}} to use to
+#' @param metric measure from \code{\link[quanteda]{textstat_readability}} to use to
 #'   compute difference, default is \code{"Flesch"}
 #' @param min.diff.quantile use this quantile range of difference in the metric
 #'   only.  This is a relative measure that defaults to the upper and lower

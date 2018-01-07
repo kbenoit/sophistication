@@ -1,8 +1,8 @@
 Package: sophistication
 Type: Package
 Title: Functions to help measure textual sophistication
-Version: 0.56
-Date: 2017-08-18
+Version: 0.57
+Date: 2018-01-07
 Author: Kenneth Benoit [aut, cre], Arthur Spirling [aut], and Kevin Munger [aut]
 Maintainer: Kenneth Benoit <kbenoit@lse.ac.uk>
 Description: Provides functionality to calibrate and estimate measures of
