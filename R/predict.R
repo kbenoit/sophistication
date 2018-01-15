@@ -80,6 +80,7 @@ predict_readability <- function(object, newdata, reference_top = -2.1763368548, 
 #' @importFrom scales rescale
 #' @importFrom data.table data.table
 #' @importFrom utils packageVersion
+#' @importFrom stats coef
 predict_readability.BTm <- function(object, newdata, reference_top = -2.1763368548, reference_bottom = -3.865467, bootstrap_n = 0, verbose = FALSE) {
 
     `:=` <- NA
@@ -95,7 +96,7 @@ predict_readability.BTm <- function(object, newdata, reference_top = -2.17633685
     if (verbose)
         message("   ...using ", deparse(substitute(object)), " as fitted BT model", appendLF = FALSE)
 
-        # extract the coefficients
+    # extract the coefficients
     coeffs <- coef(object)
     # strip the "[ID]" from the coef names
     names(coeffs) <- gsub("[ID]", "", names(coeffs), fixed = TRUE)

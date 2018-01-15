@@ -16,13 +16,13 @@ same covariates as \code{object}, or a corpus or character object.  If
 omitted, the fitted values from \code{object} are used.}
 
 \item{reference_top, reference_bottom}{the \eqn{lambda} values of a text
-against which each predicted text will be compared for difficulty.  The
-default value is the \eqn{lambda} applied to all of
-\code{\link{data_corpus_fifthgrade}} (\code{reference_top}), and for the
-bottom, the "hardest" text represented by \code{reference_top}.  The
-reference values are also used to score the 100 for the rescaled lambda.
-The default values come from the snippets we fit to the model taken from
-the SOTU corpus.  (See \code{f999866.csv}.)}
+against which each predicted text will be compared for difficulty or rescaled.  The
+default value for \code{reference_bottom} is the \eqn{lambda} applied to all of
+\code{\link{data_corpus_fifthgrade}}, and is used as the baseline value to calculate
+the probability that a given text is easier, as well as the anchor value of 100 to which 
+texts are rescaled. The default value for \code{reference_top} is the \eqn{lambda}
+of the most difficult text in the State of the Union corpus, and is used as the anchor value 
+of 0 to which texts are rescaled (See \code{f999866.csv}.)}
 
 \item{bootstrap_n}{number of bootstrap replicates for computing intervals}
 
@@ -32,11 +32,11 @@ the SOTU corpus.  (See \code{f999866.csv}.)}
 a data.frame with the rows named to the text names, and the columns
   consisting of: \describe{ \item{\code{lambda}}{estimated lambda for each
   text} \item{\code{prob}}{the probability that the text is easier than the
-  reference lambda)} \item{\code{scaled}}{a rescaled lambda on a scale of
-  "ease" ranging from 0-100, where 100 is set to the difficulty of the
-  reference value (set by default at the fifth-grade reading level).  0 will
-  be set at the difficulty level of the most difficult text in the training
-  data.} }
+  reference lambda, the default of which is \eqn{lambda} applied to all of
+  \code{\link{data_corpus_fifthgrade}}} \item{\code{scaled}}{a rescaled lambda on a scale of
+  "ease" ranging from 0-100, where 100 and 0 are determined by the fifth grade texts 
+  and the hardest text from the State of the Union corpus, respectively, unless
+  specified by the user} }
 }
 \description{
 Predicts the \eqn{lambda} for a given text in \code{newdata}, from a fitted
