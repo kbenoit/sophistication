@@ -39,7 +39,7 @@ bootstrap_readability.corpus <- function(x, n = 100, ..., verbose = FALSE) {
     # original texts
     if (verbose)
         message("   ...computing values from original texts")
-    result$original <- textstat_readability(x, ..., drop = FALSE)
+    result$original <- textstat_readability(x, ...)[, -1]
 
     # segment into sentences
     if (verbose)
@@ -55,15 +55,15 @@ bootstrap_readability.corpus <- function(x, n = 100, ..., verbose = FALSE) {
     for (i in seq_len(n)) {
         message(" ", i, appendLF = FALSE)
         x_recombined <- corpus_reshape(corpus_sample(x_sentences, replace = TRUE, by = "_document"), to = "documents")
-        replicates_array[, , i] <- as.matrix(textstat_readability(x_recombined, ...))
+        replicates_array[, , i] <- as.matrix(textstat_readability(x_recombined, ...)[, -1])
     }
     message("")
 
     # compute summary statistics
     if (verbose)
         message("   ...computing summary statistics")
-    result$bs_mean <- apply(replicates_array, c(1,2), mean)
-    result$bs_sd <- apply(replicates_array, c(1,2), sd)
+    result$bs_mean <- (apply(replicates_array, c(1,2), mean))
+    result$bs_sd <- (apply(replicates_array, c(1,2), sd))
 
     # reattach dimension names to bs elements
     dimnames(result$bs_mean) <- dimnames(result$bs_sd) <- dimnames(result$original)

@@ -1,16 +1,16 @@
 Package: sophistication
 Type: Package
 Title: Functions to help measure textual sophistication
-Version: 0.57
-Date: 2018-01-07
+Version: 0.58
+Date: 2018-01-31
 Author: Kenneth Benoit [aut, cre], Arthur Spirling [aut], and Kevin Munger [aut]
 Maintainer: Kenneth Benoit <kbenoit@lse.ac.uk>
 Description: Provides functionality to calibrate and estimate measures of
     textual sophistication and reading difficulty. Used in Benoit, Munger and
     Spirling (2017).
 Depends: 
-    R (>= 3.2.2),
-    quanteda (>= 0.9.9),
+    R (>= 3.4.0),
+    quanteda (>= 1.0.0)
 Imports:
     reshape2,
     data.table,
