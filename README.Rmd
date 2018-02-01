@@ -9,11 +9,12 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "##")
 ```
 
 <!--
-[![CRAN Version](http://www.r-pkg.org/badges/version/sophistication)](http://cran.r-project.org/package=sophistication)
 ![Downloads](http://cranlogs.r-pkg.org/badges/sophistication)
-[![Travis-CI Build Status](https://travis-ci.org/kbenoit/sophistication.svg?branch=master)](https://travis-ci.org/kbenoit/sophistication)
-[![codecov.io](https://codecov.io/github/kbenoit/sophistication/coverage.svg?branch=master)][1]
 -->
+[![CRAN Version](http://www.r-pkg.org/badges/version/sophistication)](http://cran.r-project.org/package=sophistication)
+[![Travis-CI Build Status](https://travis-ci.org/kbenoit/sophistication.svg?branch=master)](https://travis-ci.org/kbenoit/sophistication)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/kbenoit/sophistication?branch=master&svg=true)](https://ci.appveyor.com/project/kbenoit/sophistication)
+[![Coverage Status](https://img.shields.io/codecov/c/github/kbenoit/sophistication/master.svg)](https://codecov.io/github/kbenoit/sophistication?branch=master)
 
 ## Code for use in measuring the sophistication of political text
 
