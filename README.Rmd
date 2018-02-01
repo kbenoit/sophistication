@@ -36,7 +36,6 @@ new name | original name | description
 `data_corpus_crimson` | `crimsonCorpus` |  Editorials from the Harvard *Crimson*
 `data_corpus_partybroadcast` | `partybcastCorpus` |  UK political party broadcasts
 `data_corpus_presdebates` | `presDebateCorpus` | US presidential debates 2016
-`data_corpus_SOTU` | `SOTUCorpus` | US State of the Union corpus
 
 
 
@@ -46,7 +45,8 @@ new name | original name | description
 library("sophistication")
 
 # make the snipepts of one sentence, between 100-350 chars in length
-snippetData <- snippets_make(data_corpus_SOTU, nsentence = 1, minchar = 150, maxchar = 250)
+data(data_corpus_sotu, package = "quanteda.corpora")
+snippetData <- snippets_make(data_corpus_sotu, nsentence = 1, minchar = 150, maxchar = 250)
 # clean up the snippets
 snippetData <- snippets_clean(snippetData)
 

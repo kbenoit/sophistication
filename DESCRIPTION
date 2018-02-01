@@ -22,6 +22,8 @@ Suggests:
     spacyr,
     testthat,
     covr
+Remotes:
+    quanteda/quanteda.corpora
 License: GPL-3
 LazyData: TRUE
 RoxygenNote: 6.0.1
