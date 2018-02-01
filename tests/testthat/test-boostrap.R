@@ -21,6 +21,8 @@ test_that("bootstrap_readability works as expected with two measures", {
     
 test_that("bootstrap_readability works as expected with one measure", {
     set.seed(1)
+    corp <- c("The cat in the hat ate hamburgers.",
+              "One two six seven eleven.")
     bsr2 <- bootstrap_readability(corp, n = 10, measure = c("Flesch"))
     class(bsr2$original) <- "data.frame"
     rownames(bsr2$original) <- NULL
