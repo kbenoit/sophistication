@@ -48,7 +48,8 @@ pairs_gold_make <- function(x, n.pairs, metric = "Flesch", min.diff.quantile = c
 
     # add readability
     if (verbose) message("   computing ", metric, " readability measure")
-    dtGold[, c("read1", "read2") := list(textstat_readability(text1, metric), textstat_readability(text2, metric))]
+    dtGold[, c("read1", "read2") := list(textstat_readability(text1, metric)[[metric]], 
+                                         textstat_readability(text2, metric)[[metric]])]
     # compute difference and sort in descending order of absolute difference
     dtGold[, readdiff := abs(read1 - read2)]
 

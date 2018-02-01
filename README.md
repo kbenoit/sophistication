@@ -1,13 +1,21 @@
 <!--
-[![CRAN Version](http://www.r-pkg.org/badges/version/sophistication)](http://cran.r-project.org/package=sophistication)
 ![Downloads](http://cranlogs.r-pkg.org/badges/sophistication)
-[![Travis-CI Build Status](https://travis-ci.org/kbenoit/sophistication.svg?branch=master)](https://travis-ci.org/kbenoit/sophistication)
-[![codecov.io](https://codecov.io/github/kbenoit/sophistication/coverage.svg?branch=master)][1]
 -->
+[![CRAN
+Version](http://www.r-pkg.org/badges/version/sophistication)](http://cran.r-project.org/package=sophistication)
+[![Travis-CI Build
+Status](https://travis-ci.org/kbenoit/sophistication.svg?branch=master)](https://travis-ci.org/kbenoit/sophistication)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/kbenoit/sophistication?branch=master&svg=true)](https://ci.appveyor.com/project/kbenoit/sophistication)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/kbenoit/sophistication/master.svg)](https://codecov.io/github/kbenoit/sophistication?branch=master)
+
 Code for use in measuring the sophistication of political text
 --------------------------------------------------------------
 
-"Measuring and Explaining Political Sophistication Through Textual Complexity" by Kenneth Benoit, Kevin Munger, and Arthur Spirling. This package is built on [**quanteda**](http://quanteda.io).
+“Measuring and Explaining Political Sophistication Through Textual
+Complexity” by Kenneth Benoit, Kevin Munger, and Arthur Spirling. This
+package is built on [**quanteda**](http://quanteda.io).
 
 ### How to install
 
@@ -32,14 +40,14 @@ devtools::install_github("kbenoit/sophistication")
 ``` r
 library("sophistication")
 ## Loading required package: quanteda
-## quanteda version 0.99.1
-## Using 4 of 8 threads for parallel computing
+## quanteda version 1.0.0
+## Using 7 of 8 threads for parallel computing
 ## 
 ## Attaching package: 'quanteda'
 ## The following object is masked from 'package:utils':
 ## 
 ##     View
-## sophistication version 0.56
+## sophistication version 0.58
 ## Dropbox folder location set to: ~/Dropbox/Papers/Benoit_Spirling_Readability/
 
 # make the snipepts of one sentence, between 100-350 chars in length
@@ -79,7 +87,8 @@ testData <- snippetData[sample(1:nrow(snippetData), 5), ]
 ## 4  Jackson-1830    4200087         TRUE
 ```
 
-We can also use the package function to generate "gold" questions based on readability differences:
+We can also use the package function to generate “gold” questions based
+on readability differences:
 
 ``` r
 # make a lot of candidate pairs
@@ -160,4 +169,5 @@ pairs_gold_make(snippetPairsAll, n.pairs = 10)
 ## 10 Text A is "easier" to read because it contains some combination of shorter sentences, more commonly used and more easily understood terms, and is generally less complicated and easier to read and grasp its point.
 ```
 
-There is a lot more than this, of course, but documentation is still pretty thin.
+There is a lot more than this, of course. Our documentation will improve
+as we develop the package with an aim to eventual CRAN release.

@@ -67,7 +67,7 @@ snippetPairsAll <- pairs_regular_make(snippetData[sample(1:nrow(snippetData), 10
 pairs_gold_make(snippetPairsAll, n.pairs = 10)
 ```
 
-There is a lot more than this, of course, but documentation is still pretty thin.
+There is a lot more than this, of course. Our documentation will improve as we develop the package with an aim to eventual CRAN release.
 
     
 
