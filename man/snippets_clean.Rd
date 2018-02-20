@@ -4,16 +4,23 @@
 \alias{snippets_clean}
 \title{clean up snippets}
 \usage{
-snippets_clean(x, readability.limits = NULL, verbose = TRUE, ...)
+snippets_clean(x, readability.limits = NULL, measure = "Flesch",
+  verbose = TRUE, ...)
 }
 \arguments{
 \item{x}{snippet data created by \code{\link{snippets_make}}}
 
-\item{readability.limits}{Two-element numeric vector used to filter out snippets based on readability scores.  Any snippets with values outside this range will be dropped.}
+\item{readability.limits}{Two-element numeric vector used to filter out
+snippets based on readability scores.  Any snippets with values outside
+this range will be dropped.}
+
+\item{measure}{the value of \code{measure} passed to
+\code{\link[quanteda]{textstat_readability}}}
 
 \item{verbose}{if \code{TRUE} output status messages}
 
-\item{...}{additional arguments passed to \link[quanteda]{textstat_readability}, such as `measure`}
+\item{...}{additional arguments passed to
+\code{\link[quanteda]{textstat_readability}}}
 }
 \description{
 Remove snippets that have unusual text, such as numbers.

@@ -38,8 +38,7 @@ snippets_make.corpus <- function(x, nsentences = 1, minchar = 100, maxchar = 350
     # remove the shorter snippets
     dt <- dt[completeSet == TRUE]
     # concatenate the texts by snippetID, if multiple sentences
-    if (nsentences > 1)
-        dt <- dt[, list(text = paste(text, collapse = "  ")), by = .(docID, snippetID)]
+    dt <- dt[, list(text = paste(text, collapse = "  ")), by = .(docID, snippetID)]
     # create a numeric document ID, to help with dyad sampling
     dt[, docIDnum := .GRP, by = .(docID)]
     # unique ID for each snippet

@@ -3,16 +3,21 @@
 #'
 #' Remove snippets that have unusual text, such as numbers.
 #' @param x snippet data created by \code{\link{snippets_make}}
-#' @param readability.limits Two-element numeric vector used to filter out snippets based on readability scores.  Any snippets with values outside this range will be dropped.
-#' @param ... additional arguments passed to \link[quanteda]{textstat_readability}, such as `measure`
+#' @param readability.limits Two-element numeric vector used to filter out
+#'   snippets based on readability scores.  Any snippets with values outside
+#'   this range will be dropped.
+#' @param measure the value of \code{measure} passed to
+#'   \code{\link[quanteda]{textstat_readability}}
 #' @param verbose if \code{TRUE} output status messages
+#' @param ... additional arguments passed to
+#'   \code{\link[quanteda]{textstat_readability}}
 #' @importFrom quanteda textstat_readability
 #' @export
-snippets_clean <- function(x, readability.limits = NULL, verbose = TRUE, ...) {
+snippets_clean <- function(x, readability.limits = NULL, measure = "Flesch", verbose = TRUE, ...) {
 
     text <- NULL
 
-    if (!("snippet" %in% class(x)))
+    if (!inherits(x, "snippet"))
         stop("cleanSnippets only works on snippet data.")
 
     if (verbose) message("Cleaning ", format(nrow(x), big.mark=","), " snippets...")
@@ -25,7 +30,7 @@ snippets_clean <- function(x, readability.limits = NULL, verbose = TRUE, ...) {
             stop("readability.limits must be a two-element numeric vector")
 
         if (verbose) message("   computing readability...", appendLF = FALSE)
-        readblty <- quanteda::textstat_readability(x$text, ...)
+        readblty <- quanteda::textstat_readability(x$text, ...)[, 2]
         # make sure smaller is before lower
         readability.limits <- sort(readability.limits)
         excludedRows <- (readblty < readability.limits[1] | readblty > readability.limits[2])
