@@ -1,4 +1,3 @@
-
 #' clean up snippets
 #'
 #' Remove snippets that have unusual text, such as numbers.

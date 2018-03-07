@@ -28,8 +28,15 @@
 #'          d2 = "No if and or but.",
 #'          d3 = "the")
 #' covars_make_baselines(txt)
+#' 
+#' txt2 <- rep("The art of husbandry is ancient.", 3)
+#' names(txt2) <- paste0("doc", 1:3)
+#' covars_make_baselines(txt2, baseline_data = "google")
+#' covars_make_baselines(txt2, baseline_data = "google",
+#'                       baseline_year = c(1790, 1850, 1980))
 #'
-#' \dontrun{head(covars_make_baselines(file = "data/CF_results/f921916.csv"))
+#' \dontrun{
+#' head(covars_make_baselines(file = "data/CF_results/f921916.csv"))
 #' head(bt_input_make(file = "data/CF_results/f921916.csv",
 #'                    covars = TRUE, readability_measure = "Flesch")$predictors)
 #' }
@@ -76,14 +83,21 @@ covars_make_baselines.character <- function(x, baseline_data = c("brown", "googl
     as.data.frame(result, row.names = names(x))
 }
 
-make_baselines_google <- function(x, baseline_year = baseline_year, baseline_word = baseline_word) {
+make_baselines_google <- function(x, baseline_year, baseline_word) {
 
     # check that a single baseline_year is in the matrix
-    if (length(baseline_year == 1) && !(baseline_year >= 1790 & baseline_year <= 2009))
-        stop(baseline_year, " is not a valid year, must lie between 1790-2000 inclusive")
+    if (length(baseline_year) >= 1 && !all(baseline_year >= 1790))
+        stop("baseline_year must be 1790 or higher")
+
+    # check that baseline_year is one per text, if not a single value
+    if (length(baseline_year) > 1 && length(baseline_year) != length(x))
+        stop("baseline_year must be scalar or equal in length to the number of documents")
 
     # round to nearest decade
     baseline_year <- floor(baseline_year / 10) * 10
+    # fix 2010 and higher to 2000
+    max_google_year <- max(as.integer(colnames(data_matrix_google1grams)))
+    baseline_year[baseline_year > max_google_year] <- max_google_year
 
     # check that baseline word exists in the matrix
     if (!baseline_word %in% rownames(data_matrix_google1grams))
@@ -98,24 +112,35 @@ make_baselines_google <- function(x, baseline_year = baseline_year, baseline_wor
         toks <- as.tokens(toks2)
     }
 
-    indexToken <- match(as.character(toks), rownames(data_matrix_google1grams))
-
-    # normalize token frequencies by baseline_word
+    # normalize token frequencies by baseline_word, just for types found
     data_matrix_google1grams <- data_matrix_google1grams /
         rep(data_matrix_google1grams[baseline_word, ], each = nrow(data_matrix_google1grams))
-
-    # for baseline year, if specified
-    if (length(baseline_year) == 1) {
-        indexYear <-  which(colnames(data_matrix_google1grams) == as.character(baseline_year))
-        baselines <- apply(data.frame(i = indexToken, j = indexYear), 1,
-                           function(x) data_matrix_google1grams[x[1], x[2]])
-        baselines <- split(baselines, rep(seq_along(toks), times = lengths(toks)))
-        result <- data.frame(google_mean_ = sapply(baselines, mean, na.rm = TRUE),
-                             google_min_ = sapply(baselines, min, na.rm = TRUE))
-        if (!is.null(names(x))) row.names(result) <- names(x)
-        names(result)[(ncol(result)-1):ncol(result)] <-
-            paste0(names(result)[(ncol(result)-1):ncol(result)], baseline_year)
+    
+    # get the indexes for tokens
+    indexToken <- match(as.character(toks), rownames(data_matrix_google1grams))
+    # get the indexes for years
+    indexYear <- match(as.character(baseline_year), colnames(data_matrix_google1grams))
+    if (length(indexYear) > 1) {
+        indexYear <- rep(indexYear, times = quanteda::ntoken(toks))
     }
+
+    # look up years
+    baselines <- apply(data.frame(i = indexToken, j = indexYear), 1,
+                       function(x) data_matrix_google1grams[x[1], x[2]])
+    baselines <- split(baselines, rep(seq_along(toks), times = lengths(toks)))
+    result <- data.frame(google_mean_ = sapply(baselines, mean, na.rm = TRUE),
+                         google_min_ = sapply(baselines, min, na.rm = TRUE))
+    
+    # set row and column names
+    if (!is.null(names(x))) row.names(result) <- names(x)
+    yearlab <- if (length(baseline_year) > 1) {
+        "local"
+    } else {
+        as.character(baseline_year) 
+    }
+    names(result)[(ncol(result)-1):ncol(result)] <-
+        paste0(names(result)[(ncol(result)-1):ncol(result)], yearlab)
+
     result
 }
 

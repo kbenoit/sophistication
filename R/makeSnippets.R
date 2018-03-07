@@ -52,4 +52,3 @@ snippets_make.corpus <- function(x, nsentences = 1, minchar = 100, maxchar = 350
     class(dt) <- c("snippet", class(dt))
     dt
 }
-
