@@ -136,7 +136,7 @@ predict_readability.BTm <- function(object, newdata, reference_top = -2.17633685
     if (verbose) message("   ...computing predicted values")
     newdata$lambda <- apply(newdata[, names(coeffs), with = FALSE], 1, function(z) sum(z * coeffs))
     # compute the probability that a text is easier than the reference text
-    newdata[, prob := exp(lambda) / (exp(lambda) + exp(reference_bottom))]
+    newdata[, prob := exp(lambda) / (exp(lambda) + exp(reference_top))]
 
     # compute the rescaled lambda
     # use the references for the 0 and 100 endpoints
