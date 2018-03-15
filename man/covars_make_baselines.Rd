@@ -30,10 +30,11 @@ is \code{"text"}}
 \item{baseline_data}{\code{"brown"}, \code{"google"}, or both (the default) to indicate the
 Brown corpus data or Google n-grams data, respectively.}
 
-\item{baseline_year}{the baseline year to choose for reference, a year ending
-in 0 from 1790-2000, or \code{NULL} to match a text to its nearest year
-(the year information is taken from the \code{textid} that is part of the
-Crowdflower data).  Does not apply if \code{baseline_data = "brown"}.}
+\item{baseline_year}{a scalar or vector of the baseline years to choose for
+reference: a year ending in 0 from 1780-2000, or \code{NULL} to match a
+text to its nearest year (the year information is taken from the
+\code{textid} that is part of the Crowdflower data).  Does not apply if
+\code{baseline_data = "brown"}.}
 
 \item{baseline_word}{the word against which other word frequencies will be
 baselined.  This defaults to "the" but can be any word found in the word
@@ -53,7 +54,14 @@ txt <- c(d1 = quanteda::data_char_sampletext,
          d3 = "the")
 covars_make_baselines(txt)
 
-\dontrun{head(covars_make_baselines(file = "data/CF_results/f921916.csv"))
+txt2 <- rep("The art of husbandry is ancient.", 3)
+names(txt2) <- paste0("doc", 1:3)
+covars_make_baselines(txt2, baseline_data = "google")
+covars_make_baselines(txt2, baseline_data = "google",
+                      baseline_year = c(1790, 1850, 1980))
+
+\dontrun{
+head(covars_make_baselines(file = "data/CF_results/f921916.csv"))
 head(bt_input_make(file = "data/CF_results/f921916.csv",
                    covars = TRUE, readability_measure = "Flesch")$predictors)
 }

@@ -2,6 +2,10 @@
 
 ## Added 0.5.x
 
+* `covars_make_baselines()` and `predict_readability()` now have a vectorized `baseline_years` arguments, for fitting Google frequencies to specific decades.
+
+## Added 0.5.x
+
 * Added `predict_readability()`, to fit readability scores on any text or corpus, given a fitted `BTm` model.
 * Added (*fast*) bootstrapping at the sentence level, for `predict_readability()`.
 * Added status messages to `predict_readability()` through `verbose` option.

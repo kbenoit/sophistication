@@ -8,10 +8,11 @@
 #'   is \code{"text"}
 #' @param baseline_data \code{"brown"}, \code{"google"}, or both (the default) to indicate the
 #'   Brown corpus data or Google n-grams data, respectively.
-#' @param baseline_year the baseline year to choose for reference, a year ending
-#'   in 0 from 1790-2000, or \code{NULL} to match a text to its nearest year
-#'   (the year information is taken from the \code{textid} that is part of the
-#'   Crowdflower data).  Does not apply if \code{baseline_data = "brown"}.
+#' @param baseline_year a scalar or vector of the baseline years to choose for
+#'   reference: a year ending in 0 from 1780-2000, or \code{NULL} to match a
+#'   text to its nearest year (the year information is taken from the
+#'   \code{textid} that is part of the Crowdflower data).  Does not apply if
+#'   \code{baseline_data = "brown"}.
 #' @param baseline_word the word against which other word frequencies will be
 #'   baselined.  This defaults to "the" but can be any word found in the word
 #'   frequency tables
@@ -86,8 +87,8 @@ covars_make_baselines.character <- function(x, baseline_data = c("brown", "googl
 make_baselines_google <- function(x, baseline_year, baseline_word) {
 
     # check that a single baseline_year is in the matrix
-    if (length(baseline_year) >= 1 && !all(baseline_year >= 1790))
-        stop("baseline_year must be 1790 or higher")
+    if (length(baseline_year) >= 1 && !all(baseline_year >= 1780))
+        warning("baseline_year < 1790 set to 1790")
 
     # check that baseline_year is one per text, if not a single value
     if (length(baseline_year) > 1 && length(baseline_year) != length(x))
@@ -98,6 +99,8 @@ make_baselines_google <- function(x, baseline_year, baseline_word) {
     # fix 2010 and higher to 2000
     max_google_year <- max(as.integer(colnames(data_matrix_google1grams)))
     baseline_year[baseline_year > max_google_year] <- max_google_year
+    # fix below 1790 to 1790
+    baseline_year[baseline_year < 1790] <- 1790
 
     # check that baseline word exists in the matrix
     if (!baseline_word %in% rownames(data_matrix_google1grams))

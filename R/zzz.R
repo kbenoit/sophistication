@@ -10,7 +10,8 @@
 
     options(PYTHON_EXECUTABLE =
                 switch(user,
-                       kbenoit = "/Library/Frameworks/Python.framework/Versions/3.6/bin/python3",
+                       # kbenoit = "/Library/Frameworks/Python.framework/Versions/3.6/bin/python3",
+                       kbenoit = "/anaconda/bin/python",
                        as9934 = NULL,
                        kevin = NULL)
     )

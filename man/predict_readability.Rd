@@ -5,7 +5,8 @@
 \title{predict readability score from a fitted BT model}
 \usage{
 predict_readability(object, newdata, reference_top = -2.1763368548,
-  reference_bottom = -3.865467, bootstrap_n = 0, verbose = FALSE)
+  reference_bottom = -3.865467, bootstrap_n = 0, baseline_year = 2000,
+  verbose = FALSE)
 }
 \arguments{
 \item{object}{a fitted \code{\link[BradleyTerry2]{BTm}} model object}
@@ -25,6 +26,9 @@ of the most difficult text in the State of the Union corpus, and is used as the 
 of 0 to which texts are rescaled (See \code{f999866.csv}.)}
 
 \item{bootstrap_n}{number of bootstrap replicates for computing intervals}
+
+\item{baseline_year}{a scalar or vector of the baseline years to choose for
+reference: a year ending in 0 from 1790-2000}
 
 \item{verbose}{logical; if \code{TRUE} print status messages}
 }
@@ -59,16 +63,30 @@ txts <- c(fifthgrade = paste(texts(data_corpus_fifthgrade), collapse = "  "),
           data_corpus_inaugural[c(1:2, 9:10, 54:58)])
 predict_readability(BT_best, newdata = txts)
 ##                    lambda       prob    scaled
-## fifthgrade      -2.168784 0.50188816 100.26616
-## 1789-Washington -5.678335 0.02925544 -23.41412
-## 1793-Washington -3.607503 0.19291702  49.56418
-## 1821-Monroe     -3.666829 0.18384785  47.47347
-## 1825-Adams      -4.167703 0.12011246  29.82216
-## 2001-Bush       -2.317610 0.46474035  95.02139
-## 2005-Bush       -2.652254 0.38321669  83.22817
-## 2009-Obama      -2.594972 0.39684336  85.24685
-## 2013-Obama      -2.779760 0.35356091  78.73473
-## 2017-Trump      -2.370844 0.45152595  93.14536
+## fifthgrade      -2.128336 0.51199792 102.84175
+## 1789-Washington -5.494969 0.03493749 -96.46991
+## 1793-Washington -2.852801 0.33705102  59.95195
+## 1821-Monroe     -3.629638 0.18949402  13.96156
+## 1825-Adams      -4.138627 0.12321942 -16.17163
+## 2001-Bush       -2.273380 0.47575815  94.25482
+## 2005-Bush       -2.583155 0.39967525  75.91551
+## 2009-Obama      -2.529601 0.41259115  79.08604
+## 2013-Obama      -2.747889 0.36087883  66.16295
+## 2017-Trump      -2.359702 0.45428669  89.14440
+
+years <- c(2000, as.integer(substring(names(txts)[-1], 1, 4)))
+predict_readability(BT_best, newdata = txts, baseline_year = years)
+##                    lambda       prob    scaled
+## fifthgrade      -2.128338 0.51199736 102.84162
+## 1789-Washington -5.494972 0.03493741 -96.47004
+## 1793-Washington -2.852803 0.33705052  59.95182
+## 1821-Monroe     -3.629640 0.18949368  13.96143
+## 1825-Adams      -4.138629 0.12321918 -16.17177
+## 2001-Bush       -2.273383 0.47575759  94.25469
+## 2005-Bush       -2.583158 0.39967471  75.91538
+## 2009-Obama      -2.529603 0.41259061  79.08591
+## 2013-Obama      -2.747891 0.36087832  66.16282
+## 2017-Trump      -2.359704 0.45428614  89.14426
 
 names(txts) <- gsub("ington", "", names(txts))
 pr <- predict_readability(BT_best, newdata = txts[c(1:3, 9:10)], bootstrap_n = 100)
