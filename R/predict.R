@@ -263,7 +263,7 @@ get_covars_new.corpus <- function(x, baseline_year = 2000, verbose = FALSE) {
     google_min <- pos <- `:=` <- nchars <- token <- sentence_id <- years <- NULL
     doc_id <- .N <- NULL
 
-    if (verbose) message("   ...tagging parts of speech\n   ...")
+    if (verbose) message("   ...tagging parts of speech")
     suppressMessages(
         spacyr::spacy_initialize(python_executable = getOption("PYTHON_EXECUTABLE"))
     )
