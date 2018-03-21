@@ -112,7 +112,7 @@ predict_readability.BTm <- function(object, newdata, reference_top = -2.17633685
     if (verbose)
         message("Starting predict_readability (sophistication v", packageVersion("sophistication"), ")...")
 
-    if (bootstrap_n > 0)
+    if (missing(newdata) && bootstrap_n > 0)
         warning("bootstrap_n ignored; only new texts can be bootstrapped")
 
     if (verbose)
@@ -263,8 +263,10 @@ get_covars_new.corpus <- function(x, baseline_year = 2000, verbose = FALSE) {
     google_min <- pos <- `:=` <- nchars <- token <- sentence_id <- years <- NULL
     doc_id <- .N <- NULL
 
-    if (verbose) message("   ...tagging parts of speech")
-    suppressMessages(spacyr::spacy_initialize(python_executable = getOption("PYTHON_EXECUTABLE")))
+    if (verbose) message("   ...tagging parts of speech\n   ...")
+    suppressMessages(
+        spacyr::spacy_initialize(python_executable = getOption("PYTHON_EXECUTABLE"))
+    )
     result <- data.table(spacyr::spacy_parse(texts(x), tag = FALSE, lemma = FALSE, entity = FALSE, dependency = FALSE))
     # remove punctuation
     result <- result[pos != "PUNCT" & pos != "SPACE"]
