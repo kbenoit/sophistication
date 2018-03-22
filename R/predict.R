@@ -243,7 +243,7 @@ computed_aggregated_covars <- function(y, i) {
                   by = "doc_id"]
 
     y[, c("meanWordChars", "pr_noun", "meanSentenceChars",   "google_min") :=
-           list  ( C / W ,  n_noun/W,             C / St , min(google_min))]
+           list  ( C / W ,  n_noun/W,             C / St , google_min)]
     y[, resample := i]
     y
 }
