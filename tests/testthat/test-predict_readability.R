@@ -7,7 +7,7 @@ test_that("vectorized prediction works", {
              "the quick brown fox jumped",
              "ok computer hedgehog",
              "ok computer hedgehog")
-    pred <- predict_readability(BT_best, newdata = txt, 
+    pred <- predict_readability(data_BTm_bms, newdata = txt, 
                                 baseline_year = c(2000, 1500, 1800, 1900))
     expect_false( pred[1, "prob"] == pred[2, "prob"] )
     expect_false( pred[3, "prob"] == pred[4, "prob"] )
@@ -20,7 +20,8 @@ test_that("scalar prediction works", {
              "the quick brown fox jumped",
              "ok computer hedgehog",
              "ok computer hedgehog")
-    pred <- predict_readability(BT_best, newdata = txt, 
+    pred <- predict_readability(data_BTm_bms,
+                                newdata = txt, 
                                 baseline_year = 1900)
     expect_equal( pred[1, "prob"], pred[2, "prob"] )
     expect_equal( pred[3, "prob"], pred[4, "prob"] )

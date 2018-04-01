@@ -4,10 +4,9 @@
 #' Bradley-Terry model object \code{object}.
 #'
 #' @param object a fitted \code{\link[BradleyTerry2]{BTm}} model object
-#' @param newdata an optional data frame in which to look for texts whose
-#'   readability values will be predicted.  This can be a data.frame with the
-#'   same covariates as \code{object}, or a corpus or character object.  If
-#'   omitted, the fitted values from \code{object} are used.
+#' @param newdata a character or  \link[quanteda]{corpus} object containing the
+#'   texts whose readability values will be predicted.  If omitted, the fitted
+#'   values from \code{object} are used.
 #' @param reference_top,reference_bottom the \eqn{lambda} values of a text
 #'   against which each predicted text will be compared for difficulty or rescaled.  The
 #'   default value for \code{reference_bottom} is the \eqn{lambda} applied to all of
@@ -33,9 +32,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' load("analysis_article/output/fitted_BT_model.Rdata")
-#'
-#' head(predict_readability(BT_best))
+#' head(predict_readability(data_BTm_bms))
 #' ##           lambda       prob   scaled
 #' ## 100014 -3.296731 0.24593816 60.51612
 #' ## 100028 -3.190470 0.26617180 64.26088
@@ -46,7 +43,7 @@
 #'
 #' txts <- c(fifthgrade = paste(texts(data_corpus_fifthgrade), collapse = "  "),
 #'           data_corpus_inaugural[c(1:2, 9:10, 54:58)])
-#' predict_readability(BT_best, newdata = txts)
+#' predict_readability(data_BTm_bms, newdata = txts)
 #' ##                    lambda       prob    scaled
 #' ## fifthgrade      -2.128336 0.51199792 102.84175
 #' ## 1789-Washington -5.494969 0.03493749 -96.46991
@@ -60,7 +57,7 @@
 #' ## 2017-Trump      -2.359702 0.45428669  89.14440
 #'
 #' years <- c(2000, as.integer(substring(names(txts)[-1], 1, 4)))
-#' predict_readability(BT_best, newdata = txts, baseline_year = years)
+#' predict_readability(data_BTm_bms, newdata = txts, baseline_year = years)
 #' ##                    lambda       prob    scaled
 #' ## fifthgrade      -2.128338 0.51199736 102.84162
 #' ## 1789-Washington -5.494972 0.03493741 -96.47004
@@ -74,7 +71,7 @@
 #' ## 2017-Trump      -2.359704 0.45428614  89.14426
 #' 
 #' names(txts) <- gsub("ington", "", names(txts))
-#' pr <- predict_readability(BT_best, newdata = txts[c(1:3, 9:10)], bootstrap_n = 100)
+#' pr <- predict_readability(data_BTm_bms, newdata = txts[c(1:3, 9:10)], bootstrap_n = 100)
 #' format(pr, digits = 4)
 #' ##            lambda    prob scaled lambda_lo lambda_hi  prob_lo prob_hi scaled_lo scaled_hi
 #' ## fifthgrade -2.172 0.50105 100.15    -2.210    -2.135 0.491591 0.51032     98.81   101.455
@@ -83,12 +80,13 @@
 #' ## 2013-Obama -2.791 0.35107  78.35    -2.914    -2.645 0.323485 0.38483     74.00    83.469
 #' ## 2017-Trump -2.381 0.44904  92.79    -2.511    -2.213 0.417178 0.49080     88.22    98.704
 #'
-#' predict_readability(BT_best, newdata = "The cat in the hat ate green eggs and ham.")
+#' predict_readability(data_BTm_bms, newdata = "The cat in the hat ate green eggs and ham.")
 #' ##      lambda      prob   scaled
 #' ## 1 -1.125721 0.7408932 137.0248
 #'
 #' }
-predict_readability <- function(object, newdata, reference_top = -2.1763368548, 
+predict_readability <- function(object, newdata = NULL,
+                                reference_top = -2.1763368548, 
                                 reference_bottom = -3.865467, bootstrap_n = 0, 
                                 baseline_year = 2000,
                                 verbose = FALSE) {
@@ -100,11 +98,12 @@ predict_readability <- function(object, newdata, reference_top = -2.1763368548,
 #' @importFrom data.table data.table
 #' @importFrom utils packageVersion
 #' @importFrom stats coef
-predict_readability.BTm <- function(object, newdata, reference_top = -2.1763368548, 
-                                    reference_bottom = -3.865467, bootstrap_n = 0, 
-                                    baseline_year = 2000,
-                                    verbose = FALSE) {
-
+predict_readability.BTm <- function(object, newdata = NULL,
+                                          reference_top = -2.1763368548, 
+                                          reference_bottom = -3.865467, bootstrap_n = 0, 
+                                          baseline_year = 2000,
+                                          verbose = FALSE) {
+    
     `:=` <- NA
     prob <- lambda <- scaled <- resample <- NULL
 
