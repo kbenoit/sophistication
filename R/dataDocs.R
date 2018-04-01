@@ -99,3 +99,15 @@ NULL
 #' @source \url{http://www.presidency.ucsb.edu/executive_orders.php}
 #' @format includes integer \code{Year}
 "data_corpus_eo"
+
+#' Fitted Bradley-Terry model from Benoit, Munger, and Spirling (2018)
+#'
+#' Fitted Bradley-Terry model estimates from the "best" model of 
+#' Benoit, Munger, and Spirling (2018).
+#' @references Benoit, Kenneth, Kevin Munger, and Arthur Spirling. October 30,
+#'   2017.
+#'   "\href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3062061}{Measuring
+#'   and Explaining Political Sophistication Through Textual Complexity.}"
+#'   London School of Economics and New York University manuscript.
+#' @format Fitted model of type \link[BradleyTerry2]{BTm}
+"data_BTm_bms"

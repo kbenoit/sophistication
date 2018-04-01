@@ -3,6 +3,7 @@
 ## Added 0.5.x
 
 * `covars_make_baselines()` and `predict_readability()` now have a vectorized `baseline_years` arguments, for fitting Google frequencies to specific decades.
+* Added the `data_BTm_bms` data object containing the fitted values from Benoit, Munger and Spirling (2018).
 
 ## Added 0.5.x
 
