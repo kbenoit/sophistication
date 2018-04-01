@@ -1,17 +1,3 @@
-#' @name data_corpus_presdebates
-#' @title Corpus of segemented US presidential candidate debates
-#' @docType data
-#' @description A corpus object US presidential candidate debates, currently
-#'   just 2016, but we could easily add more. The corpus includes the following
-#'   document variables: \describe{ \item{speaker}{Last name of the speaker}
-#'   \item{party}{Party of the candidate (Democratic or Republican)}
-#'   \item{date}{Date of the debate.} \item{city}{City where the debate took
-#'   place} \item{speakertype}{e.g. \code{"candidate"}, \code{"moderator"},
-#'   etc.} }
-#' @source The American Presidency Project,
-#'   \url{http://www.presidency.ucsb.edu}.
-NULL
-
 #' @name data_corpus_partybroadcasts
 #' @title Corpus of UK political party broadcasts
 #' @docType data
@@ -31,6 +17,13 @@ NULL
 #'   election of 2016, segmented by speaker, with additional information as docvars.
 #' @source The American Presidency Project,
 #'   \url{http://www.presidency.ucsb.edu}.
+#' @format 
+#'   The corpus includes the following
+#'   document variables: \describe{ \item{speaker}{Last name of the speaker}
+#'   \item{party}{Party of the candidate (Democratic or Republican)}
+#'   \item{date}{Date of the debate.} \item{city}{City where the debate took
+#'   place} \item{speakertype}{e.g. \code{"candidate"}, \code{"moderator"},
+#'   etc.} }
 NULL
 
 #' @name data_corpus_Crimson

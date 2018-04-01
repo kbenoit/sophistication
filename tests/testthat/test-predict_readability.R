@@ -3,7 +3,6 @@ context("test prediction")
 test_that("vectorized prediction works", {
     skip_on_travis()
     skip_on_appveyor()
-    load("../data/fitted_BT_model.Rdata")
     txt <- c("the quick brown fox jumped",
              "the quick brown fox jumped",
              "ok computer hedgehog",
@@ -17,7 +16,6 @@ test_that("vectorized prediction works", {
 test_that("scalar prediction works", {
     skip_on_travis()
     skip_on_appveyor()
-    load("../data/fitted_BT_model.Rdata")
     txt <- c("the quick brown fox jumped",
              "the quick brown fox jumped",
              "ok computer hedgehog",
