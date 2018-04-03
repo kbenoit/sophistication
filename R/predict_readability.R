@@ -1,3 +1,5 @@
+# predict_readability ------
+
 #' predict readability score from a fitted BT model
 #'
 #' Predicts the \eqn{lambda} for a given text in \code{newdata}, from a fitted
@@ -247,6 +249,7 @@ computed_aggregated_covars <- function(y, i) {
     y
 }
 
+# get_covars_new --------------
 
 ## compute all covariates based on spacy parse
 ## needs an entire text, not parsed into sentences
