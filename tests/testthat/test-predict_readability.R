@@ -26,7 +26,7 @@ test_that("scalar prediction works", {
     expect_equal( pred[1, "prob"], pred[2, "prob"] )
     expect_equal( pred[3, "prob"], pred[4, "prob"] )
     
-    pred2000 <- predict_readability(BT_best, newdata = txt, 
+    pred2000 <- predict_readability(data_BTm_bms, newdata = txt, 
                                     baseline_year = 2000)
     expect_false( pred[1, "prob"] == pred2000[1, "prob"] )
 })
