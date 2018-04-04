@@ -180,13 +180,13 @@ predict_readability.BTm <- function(object, newdata = NULL,
     if (bootstrap_n > 0) {
         result <- cbind(result,
                         newdata[resample > 0,
-                                list(lambda_lo = quantile(lambda, 0.025), lambda_hi = quantile(lambda, 0.975)), by = "_docid"][, 2:3, with = FALSE])
+                                list(lambda_lo = quantile(lambda, 0.025, na.rm = TRUE), lambda_hi = quantile(lambda, 0.975, na.rm = TRUE)), by = "_docid"][, 2:3, with = FALSE])
         result <- cbind(result,
                         newdata[resample > 0,
-                                list(prob_lo = quantile(prob, 0.025), prob_hi = quantile(prob, 0.975)), by = "_docid"][, 2:3, with = FALSE])
+                                list(prob_lo = quantile(prob, 0.025, na.rm = TRUE), prob_hi = quantile(prob, 0.975, na.rm = TRUE)), by = "_docid"][, 2:3, with = FALSE])
         result <- cbind(result,
                         newdata[resample > 0,
-                                list(scaled_lo = quantile(scaled, 0.025), scaled_hi = quantile(scaled, 0.975)), by = "_docid"][, 2:3, with = FALSE])
+                                list(scaled_lo = quantile(scaled, 0.025, na.rm = TRUE), scaled_hi = quantile(scaled, 0.975, na.rm = TRUE)), by = "_docid"][, 2:3, with = FALSE])
     }
 
     rownames(result) <- newdata_docnames
