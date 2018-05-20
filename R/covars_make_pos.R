@@ -50,9 +50,13 @@ covars_make_pos.character <- function(x, text_field = "text", dependency = TRUE,
     if (!("spacyr" %in% installed.packages()[, "Package"])) {
         stop("you must first install spacyr to tag parts of speech")
     }
+    
     suppressMessages(spacyr::spacy_initialize())
     result <- spacyr::spacy_parse(x, lemma = FALSE, pos = TRUE, tag = TRUE,
                                   dependency = dependency, entity = TRUE)
+    orig_docid <- result$doc_id
+    
+    result <- subset(result, !(pos %in% c("PUNCT", "SPACE")))
 
     if (!dependency) {
         result$dep_rel <- ""
@@ -68,6 +72,7 @@ covars_make_pos.character <- function(x, text_field = "text", dependency = TRUE,
     setnames(ne, "N", "n_namedentities")
     setkey(ne, doc_id)
     result <- data.table(result)
+    orig_docid <- result[, unique(doc_id)]
     result_bydoc <- result[, list(max(sentence_id),
                                   sum(pos == "NOUN"),
                                   sum(pos == "VERB"),
@@ -91,7 +96,9 @@ covars_make_pos.character <- function(x, text_field = "text", dependency = TRUE,
     if (!dependency) result_bydoc[, c("n_clause", "pr_clause") := NULL]
 
     # spacyr::spacy_finalize()
-    as.data.frame(result_bydoc)
+    result <- as.data.frame(result_bydoc)[match(result_bydoc[, doc_id], orig_docid), ]
+    row.names(result) <- NULL
+    result
 }
 
 
