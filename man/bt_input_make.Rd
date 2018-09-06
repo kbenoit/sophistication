@@ -4,9 +4,10 @@
 \alias{bt_input_make}
 \title{format Crowdflower data for BT analysis}
 \usage{
-bt_input_make(x = NULL, file = NULL, format = c("chameleons", "binomial"),
-  remove_gold = TRUE, remove_screeners = remove_gold, covars = FALSE,
-  covars_baseline = FALSE, covars_pos = FALSE, normalize = TRUE, ...)
+bt_input_make(x = NULL, file = NULL, format = c("chameleons",
+  "binomial"), remove_gold = TRUE, remove_screeners = remove_gold,
+  covars = FALSE, covars_baseline = FALSE, covars_pos = FALSE,
+  normalize = TRUE, ...)
 }
 \arguments{
 \item{x}{data.frame of results, if already loaded}

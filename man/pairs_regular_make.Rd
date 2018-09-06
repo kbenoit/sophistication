@@ -4,7 +4,8 @@
 \alias{pairs_regular_make}
 \title{form pairs of snippets for comparison}
 \usage{
-pairs_regular_make(x, n.sample = NULL, n.pairs = nrow(x) - 1, seed = NULL)
+pairs_regular_make(x, n.sample = NULL, n.pairs = nrow(x) - 1,
+  seed = NULL)
 }
 \arguments{
 \item{x}{snippet data.frame}
