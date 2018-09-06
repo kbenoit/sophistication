@@ -33,8 +33,8 @@ frompredict <- as.data.frame(sophistication:::get_covars_from_newdata.character(
 
 test_that("meanSentenceChars computed the same in predict v component function", {
     # should be: (9 + 9 + 15) / 3 = 11
-    expect_equal(covars_make(txt)[, c("meanSentenceChars")], 11)
-    expect_equal(frompredict[, "meanSentenceChars"], 11)
+    expect_equivalent(covars_make(txt)[, c("meanSentenceChars")], 11)
+    expect_equivalent(frompredict[, "meanSentenceChars"], 11)
 })
 
 test_that("google_min_2000 computed the same in predict v component function", {
@@ -46,8 +46,8 @@ test_that("google_min_2000 computed the same in predict v component function", {
 
 test_that("meanWordChars computed the same in predict v component function", {
     # should be: ((3 + 3 + 3) * 2 + 6 + 3 + 6) / 9 = 3.6667
-    expect_equal(covars_make(txt)[, c("meanWordChars")], 3.6667, tol = .0001)
-    expect_equal(frompredict[, "meanWordChars"], 3.6667, tol = .0001)
+    expect_equal(as.numeric(covars_make(txt)[, c("meanWordChars")]), 3.6667, tol = .0001)
+    expect_equal(as.numeric(frompredict[, "meanWordChars"]), 3.6667, tol = .0001)
 })
 
 test_that("pr_noun computed the same in predict v component function", {
@@ -80,8 +80,8 @@ test_that("paper example texts are correctly computed", {
     frompredict <- as.data.frame(sophistication:::get_covars_from_newdata.corpus(corp_example))
     row.names(frompredict) <- docnames(corp_example)
 
-    expect_identical(
-        covars_make(corp_example)["meanSentenceChars"],
+    expect_equivalent(
+        covars_make(corp_example)[, "meanSentenceChars"],
         frompredict["meanSentenceChars"]
     )
     
@@ -90,8 +90,8 @@ test_that("paper example texts are correctly computed", {
         frompredict["google_min"]
     )
     
-    expect_equal(
-        covars_make(corp_example)["meanWordChars"],
+    expect_equivalent(
+        covars_make(corp_example)[, "meanWordChars"],
         frompredict["meanWordChars"],
         tol = .016
     )
