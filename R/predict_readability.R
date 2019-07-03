@@ -267,7 +267,7 @@ get_covars_new.corpus <- function(x, baseline_year = 2000, verbose = FALSE) {
 
     if (verbose) message("   ...tagging parts of speech")
     suppressMessages(
-        spacyr::spacy_initialize(python_executable = getOption("PYTHON_EXECUTABLE"))
+        spacyr::spacy_initialize()
     )
     result <- data.table(spacyr::spacy_parse(texts(x), tag = FALSE, lemma = FALSE, entity = FALSE, dependency = FALSE))
     # remove punctuation
