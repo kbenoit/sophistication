@@ -4,7 +4,9 @@
 \name{data_corpus_pp}
 \alias{data_corpus_pp}
 \title{Corpus of U.S. Presidential Proclamations}
-\format{Includes one docvar, \code{Year}.}
+\format{
+Includes one docvar, \code{Year}.
+}
 \source{
 The American Presidency Project, \url{http://www.presidency.ucsb.edu/sou.php}.
 }

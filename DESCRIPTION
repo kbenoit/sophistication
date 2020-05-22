@@ -26,5 +26,5 @@ Remotes:
     quanteda/quanteda.corpora
 License: GPL-3
 LazyData: TRUE
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Encoding: UTF-8

@@ -4,9 +4,15 @@
 \alias{predict_readability}
 \title{predict readability score from a fitted BT model}
 \usage{
-predict_readability(object, newdata = NULL,
-  reference_top = -2.1763368548, reference_bottom = -3.865467,
-  bootstrap_n = 0, baseline_year = 2000, verbose = FALSE)
+predict_readability(
+  object,
+  newdata = NULL,
+  reference_top = -2.1763368548,
+  reference_bottom = -3.865467,
+  bootstrap_n = 0,
+  baseline_year = 2000,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{object}{a fitted \code{\link[BradleyTerry2]{BTm}} model object}

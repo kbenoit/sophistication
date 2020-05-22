@@ -45,6 +45,8 @@ bootstrap_readability.corpus <- function(x, n = 100, ..., verbose = FALSE) {
     if (verbose)
         message("   ...segmenting the texts into sentences for resampling")
     x_sentences <- corpus_reshape(x, to = "sentences")
+    # makes result compatible for pre and post v2
+    docvars(x_sentences, "_document") <- attr(x_sentences, "docvars")$"docid_"
 
     # initialize replicates array
     replicates_array <- array(NA, dim = c(dim(result$original), n))

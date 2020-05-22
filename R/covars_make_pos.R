@@ -45,15 +45,16 @@ covars_make_pos.data.frame <- function(x,  text_field = "text", ...) {
 #' @rdname covars_make_pos
 #' @param dependency logical; if \code{TRUE} parse dependencies
 #' @importFrom data.table data.table setkey setnames
+#' @import spacyr
 #' @export
 covars_make_pos.character <- function(x, text_field = "text", dependency = TRUE, normalize = TRUE, ...) {
     if (!("spacyr" %in% installed.packages()[, "Package"])) {
         stop("you must first install spacyr to tag parts of speech")
     }
     
-    suppressMessages(spacyr::spacy_initialize())
-    result <- spacyr::spacy_parse(x, lemma = FALSE, pos = TRUE, tag = TRUE,
-                                  dependency = dependency, entity = TRUE)
+    suppressMessages(spacy_initialize())
+    result <- spacy_parse(x, lemma = FALSE, pos = TRUE, tag = TRUE,
+                          dependency = dependency, entity = TRUE)
     orig_docid <- result$doc_id
     
     result <- subset(result, !(pos %in% c("PUNCT", "SPACE")))
@@ -67,7 +68,7 @@ covars_make_pos.character <- function(x, text_field = "text", dependency = TRUE,
         n_adverb <- n_clause <- NULL
 
     # count named entities
-    ne <- data.table(spacyr::entity_extract(result))
+    ne <- data.table(entity_extract(result))
     ne <- ne[, .N, by = doc_id]
     setnames(ne, "N", "n_namedentities")
     setkey(ne, doc_id)

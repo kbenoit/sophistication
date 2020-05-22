@@ -4,7 +4,9 @@
 \name{data_BTm_bms}
 \alias{data_BTm_bms}
 \title{Fitted Bradley-Terry model from Benoit, Munger, and Spirling (2018)}
-\format{Fitted model of type \link[BradleyTerry2]{BTm}}
+\format{
+Fitted model of type \link[BradleyTerry2]{BTm}
+}
 \usage{
 data_BTm_bms
 }

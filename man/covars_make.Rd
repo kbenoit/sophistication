@@ -17,8 +17,7 @@ covars_make(x, ...)
 
 \method{covars_make}{corpus}(x, ...)
 
-\method{covars_make}{character}(x, readability_measure = NULL,
-  normalize = TRUE, ...)
+\method{covars_make}{character}(x, readability_measure = NULL, normalize = TRUE, ...)
 
 covars_make_all(x, ..., dependency = TRUE, verbose = FALSE)
 }

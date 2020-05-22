@@ -4,8 +4,13 @@
 \alias{snippets_clean}
 \title{clean up snippets}
 \usage{
-snippets_clean(x, readability.limits = NULL, measure = "Flesch",
-  verbose = TRUE, ...)
+snippets_clean(
+  x,
+  readability.limits = NULL,
+  measure = "Flesch",
+  verbose = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{snippet data created by \code{\link{snippets_make}}}

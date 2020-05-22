@@ -16,8 +16,13 @@ covars_make_pos(x, ...)
 
 \method{covars_make_pos}{data.frame}(x, text_field = "text", ...)
 
-\method{covars_make_pos}{character}(x, text_field = "text",
-  dependency = TRUE, normalize = TRUE, ...)
+\method{covars_make_pos}{character}(
+  x,
+  text_field = "text",
+  dependency = TRUE,
+  normalize = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{snippet data from \code{\link{snippets_make}} consisting of the

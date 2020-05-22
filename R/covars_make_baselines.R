@@ -107,7 +107,7 @@ make_baselines_google <- function(x, baseline_year, baseline_word) {
         stop(baseline_year, " is not part of data_matrix_google1grams")
 
     toks <- quanteda::tokens(quanteda::char_tolower(x), remove_punct = TRUE, remove_numbers = TRUE,
-                             remove_hyphens = TRUE)
+                             split_hyphens = TRUE)
     zero_length_tokens <- lengths(toks) == 0
     if (any(zero_length_tokens)) {
         toks2 <- as.list(toks)
@@ -150,7 +150,7 @@ make_baselines_google <- function(x, baseline_year, baseline_word) {
 make_baselines_brown <- function(x, baseline_word) {
     baseline_year <- NULL
     toks <- quanteda::tokens(quanteda::char_tolower(x), remove_punct = TRUE, remove_numbers = TRUE,
-                             remove_hyphens = TRUE)
+                             split_hyphens = TRUE)
     zero_length_tokens <- lengths(toks) == 0
     if (any(zero_length_tokens)) {
         toks2 <- as.list(toks)

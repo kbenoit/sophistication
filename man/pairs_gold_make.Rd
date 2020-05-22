@@ -4,9 +4,16 @@
 \alias{pairs_gold_make}
 \title{create gold snippet pairs for CrowdFlower}
 \usage{
-pairs_gold_make(x, n.pairs, metric = "Flesch",
-  min.diff.quantile = c(0.1, 0.9), min.diff.absolute = NULL,
-  screeners = FALSE, verbose = TRUE, seed = NULL)
+pairs_gold_make(
+  x,
+  n.pairs,
+  metric = "Flesch",
+  min.diff.quantile = c(0.1, 0.9),
+  min.diff.absolute = NULL,
+  screeners = FALSE,
+  verbose = TRUE,
+  seed = NULL
+)
 }
 \arguments{
 \item{x}{snippet pairs}

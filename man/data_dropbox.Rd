@@ -4,8 +4,7 @@
 \alias{data_dropbox}
 \title{load a file from the \code{data_pkg} Dropbox location}
 \usage{
-data_dropbox(object, location = paste0(getOption("ROOT_DROPBOX"),
-  "data_pkg/"))
+data_dropbox(object, location = paste0(getOption("ROOT_DROPBOX"), "data_pkg/"))
 }
 \arguments{
 \item{object}{the data object to be loaded (not quoted)}

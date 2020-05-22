@@ -10,8 +10,7 @@ snippets_make(x, ...)
 
 \method{snippets_make}{character}(x, ...)
 
-\method{snippets_make}{corpus}(x, nsentences = 1, minchar = 100,
-  maxchar = 350, ...)
+\method{snippets_make}{corpus}(x, nsentences = 1, minchar = 100, maxchar = 350, ...)
 }
 \arguments{
 \item{x}{input objects, texts or a quanteda corpus}

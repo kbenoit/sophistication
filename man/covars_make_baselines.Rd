@@ -16,8 +16,13 @@ covars_make_baselines(x, ...)
 
 \method{covars_make_baselines}{corpus}(x, ...)
 
-\method{covars_make_baselines}{character}(x, baseline_data = c("brown",
-  "google"), baseline_year = 2000, baseline_word = "the", ...)
+\method{covars_make_baselines}{character}(
+  x,
+  baseline_data = c("brown", "google"),
+  baseline_year = 2000,
+  baseline_word = "the",
+  ...
+)
 }
 \arguments{
 \item{x}{data.frame of results, if already loaded}
