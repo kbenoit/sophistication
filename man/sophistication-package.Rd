@@ -6,7 +6,9 @@
 \alias{sophistication-package}
 \title{Functions to help measure textual sophistication}
 \description{
-Provides functionality to calibrate and estimate measures of textual sophistication and reading difficulty. Used in Benoit, Munger and Spirling (2016).
+Provides functionality to calibrate and estimate measures of textual
+sophistication and reading difficulty. Used in Benoit, Munger and Spirling
+(2016).
 }
 \section{Source code and additional information}{
 

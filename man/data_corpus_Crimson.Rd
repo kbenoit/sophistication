@@ -9,6 +9,6 @@
 }
 \description{
 A corpus object of articles retrieved from the online archives of the Harvard
-  Crimson, 1873-2016.  The corpus includes the following
-  document variable: \describe{\item{date}{Date of the article (formatted as date)} }
+Crimson, 1873-2016.  The corpus includes the following
+document variable: \describe{\item{date}{Date of the article (formatted as date)} }
 }

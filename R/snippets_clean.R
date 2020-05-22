@@ -1,15 +1,15 @@
 #' clean up snippets
 #'
 #' Remove snippets that have unusual text, such as numbers.
-#' @param x snippet data created by \code{\link{snippets_make}}
+#' @param x snippet data created by [snippets_make()]
 #' @param readability.limits Two-element numeric vector used to filter out
 #'   snippets based on readability scores.  Any snippets with values outside
 #'   this range will be dropped.
-#' @param measure the value of \code{measure} passed to
-#'   \code{\link[quanteda]{textstat_readability}}
-#' @param verbose if \code{TRUE} output status messages
+#' @param measure the value of `measure` passed to
+#'   [quanteda::textstat_readability()]
+#' @param verbose if `TRUE` output status messages
 #' @param ... additional arguments passed to
-#'   \code{\link[quanteda]{textstat_readability}}
+#'   [quanteda::textstat_readability()]
 #' @importFrom quanteda textstat_readability
 #' @export
 snippets_clean <- function(x, readability.limits = NULL, measure = "Flesch", verbose = TRUE, ...) {

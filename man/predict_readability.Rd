@@ -15,19 +15,19 @@ predict_readability(
 )
 }
 \arguments{
-\item{object}{a fitted \code{\link[BradleyTerry2]{BTm}} model object}
+\item{object}{a fitted \code{\link[BradleyTerry2:BTm]{BradleyTerry2::BTm()}} model object}
 
-\item{newdata}{a character or  \link[quanteda]{corpus} object containing the
+\item{newdata}{a character or  \link[quanteda:corpus]{corpus} object containing the
 texts whose readability values will be predicted.  If omitted, the fitted
 values from \code{object} are used.}
 
 \item{reference_top, reference_bottom}{the \eqn{lambda} values of a text
 against which each predicted text will be compared for difficulty or rescaled.  The
 default value for \code{reference_bottom} is the \eqn{lambda} applied to all of
-\code{\link{data_corpus_fifthgrade}}, and is used as the baseline value to calculate
-the probability that a given text is easier, as well as the anchor value of 100 to which 
+\code{\link[=data_corpus_fifthgrade]{data_corpus_fifthgrade()}}, and is used as the baseline value to calculate
+the probability that a given text is easier, as well as the anchor value of 100 to which
 texts are rescaled. The default value for \code{reference_top} is the \eqn{lambda}
-of the most difficult text in the State of the Union corpus, and is used as the anchor value 
+of the most difficult text in the State of the Union corpus, and is used as the anchor value
 of 0 to which texts are rescaled (See \code{f999866.csv}.)}
 
 \item{bootstrap_n}{number of bootstrap replicates for computing intervals}
@@ -39,13 +39,13 @@ reference: a year ending in 0 from 1790-2000}
 }
 \value{
 a data.frame with the rows named to the text names, and the columns
-  consisting of: \describe{ \item{\code{lambda}}{estimated lambda for each
-  text} \item{\code{prob}}{the probability that the text is easier than the
-  reference lambda, the default of which is \eqn{lambda} applied to all of
-  \code{\link{data_corpus_fifthgrade}}} \item{\code{scaled}}{a rescaled lambda on a scale of
-  "ease" ranging from 0-100, where 100 and 0 are determined by the fifth grade texts 
-  and the hardest text from the State of the Union corpus, respectively, unless
-  specified by the user} }
+consisting of: \describe{ \item{\code{lambda}}{estimated lambda for each
+text} \item{\code{prob}}{the probability that the text is easier than the
+reference lambda, the default of which is \eqn{lambda} applied to all of
+\code{\link[=data_corpus_fifthgrade]{data_corpus_fifthgrade()}}} \item{\code{scaled}}{a rescaled lambda on a scale of
+"ease" ranging from 0-100, where 100 and 0 are determined by the fifth grade texts
+and the hardest text from the State of the Union corpus, respectively, unless
+specified by the user} }
 }
 \description{
 Predicts the \eqn{lambda} for a given text in \code{newdata}, from a fitted

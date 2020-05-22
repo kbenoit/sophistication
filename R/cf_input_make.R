@@ -10,7 +10,7 @@
 #'   upload to CF
 #' @param filename the filename to which the .csv file will be written
 #' @return Returns an invisible copy of the data.frame also written to
-#'   \code{filename} in .csv format.
+#'   `filename` in .csv format.
 #' @importFrom utils write.csv
 #' @export
 cf_input_make <- function(..., filename = "CFdata.csv") {

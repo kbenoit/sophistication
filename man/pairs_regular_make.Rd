@@ -19,8 +19,8 @@ replicability}
 }
 \value{
 data.frame of paired snippets, consisting of the elements
-  \code{text1}, \code{docID1}, \code{snippetID1}, \code{text2},
-  \code{docID2}, and \code{snippetID2}.
+\code{text1}, \code{docID1}, \code{snippetID1}, \code{text2},
+\code{docID2}, and \code{snippetID2}.
 }
 \description{
 Form pairs of snippets for comparison.  By default, form the simple chained

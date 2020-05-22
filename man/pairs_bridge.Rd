@@ -7,14 +7,14 @@
 pairs_bridge(..., bridge_size = 3)
 }
 \arguments{
-\item{...}{data.frames of pairs created by \code{\link{pairs_regular_make}} or
-\code{\link{pairs_gold_make}}}
+\item{...}{data.frames of pairs created by \code{\link[=pairs_regular_make]{pairs_regular_make()}} or
+\code{\link[=pairs_gold_make]{pairs_gold_make()}}}
 
 \item{bridge_size}{how many snippets to pair from one set to another}
 }
 \value{
 a new paired dataset of all combinations of bridging pairs between
-  input datasets
+input datasets
 }
 \description{
 Form bridges between datasets by pairing across different sets.  Currently,

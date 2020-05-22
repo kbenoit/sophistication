@@ -1,12 +1,12 @@
 #' compute bootstrapped SEs for readability statistics
 #'
 #' Function to compute bootstrapped mean and SEs for readability statistics.  This is a wrapper around
-#' \code{\link{textstat_readability}}, that redraws the corpus using sentence-level bootstrapping from the
+#' [textstat_readability()], that redraws the corpus using sentence-level bootstrapping from the
 #' original texts.
-#' @param x character or \link{corpus} input object for which readability will be computed
-#' @param ... additional arguments passed to \code{\link{textstat_readability}}
+#' @param x character or [corpus] input object for which readability will be computed
+#' @param ... additional arguments passed to [textstat_readability()]
 #' @param n bootstrap replicates
-#' @param verbose if \code{TRUE} show status messages
+#' @param verbose if `TRUE` show status messages
 #' @return list consisting of three data.frame objects: the computed values on
 #'   the original texts; the computed mean of the replicates; and the standard
 #'   deviations of the replicates

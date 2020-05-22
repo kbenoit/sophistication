@@ -4,16 +4,16 @@
 #' readability is the most different between pairs.
 #' @param x snippet pairs
 #' @param n.pairs how many gold pairs to form
-#' @param metric measure from \code{\link[quanteda]{textstat_readability}} to use to
-#'   compute difference, default is \code{"Flesch"}
+#' @param metric measure from [quanteda::textstat_readability()] to use to
+#'   compute difference, default is `"Flesch"`
 #' @param min.diff.quantile use this quantile range of difference in the metric
 #'   only.  This is a relative measure that defaults to the upper and lower
-#'   deciles: \code{c(.1, .9))}
+#'   deciles: `c(.1, .9))`
 #' @param min.diff.absolute form gold pairs with only at least this absolute
 #'   value difference in the readability measures of the two texts.  Only one of
-#'   \code{min.diff.quantile} and \code{min.diff.absolute} may be specified.
-#' @param screeners if \code{TRUE}, add screener text with random instructions
-#' @param verbose if \code{TRUE}, output status messages during processing
+#'   `min.diff.quantile` and `min.diff.absolute` may be specified.
+#' @param screeners if `TRUE`, add screener text with random instructions
+#' @param verbose if `TRUE`, output status messages during processing
 #' @param seed seed to use for random procedures; set this to ensure
 #'   replicability
 #' @return a data.frame of gold pairings, with reasons

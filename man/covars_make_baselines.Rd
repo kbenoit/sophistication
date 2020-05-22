@@ -47,7 +47,7 @@ frequency tables}
 }
 \value{
 a data.frame suitable for adding to variates for analysis by
-  \link[BradleyTerry2]{BTm}
+\link[BradleyTerry2:BTm]{BTm}
 }
 \description{
 Computes the mean frequencies of terms in a text based on closest match to
@@ -73,6 +73,6 @@ head(bt_input_make(file = "data/CF_results/f921916.csv",
 
 }
 \seealso{
-\code{\link{data_matrix_google1grams}},
-  \code{\link{data_integer_brownfreq}}
+\code{\link[=data_matrix_google1grams]{data_matrix_google1grams()}},
+\code{\link[=data_integer_brownfreq]{data_integer_brownfreq()}}
 }

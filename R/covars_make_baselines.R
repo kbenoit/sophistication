@@ -4,23 +4,23 @@
 #' Computes the mean frequencies of terms in a text based on closest match to
 #' the Google unigram corpus, for the decade in which the text was recorded.
 #' @param x data.frame of results, if already loaded
-#' @param text_field the name of the text field, if a \link{data.frame}, default
-#'   is \code{"text"}
-#' @param baseline_data \code{"brown"}, \code{"google"}, or both (the default) to indicate the
+#' @param text_field the name of the text field, if a [data.frame], default
+#'   is `"text"`
+#' @param baseline_data `"brown"`, `"google"`, or both (the default) to indicate the
 #'   Brown corpus data or Google n-grams data, respectively.
 #' @param baseline_year a scalar or vector of the baseline years to choose for
-#'   reference: a year ending in 0 from 1780-2000, or \code{NULL} to match a
+#'   reference: a year ending in 0 from 1780-2000, or `NULL` to match a
 #'   text to its nearest year (the year information is taken from the
-#'   \code{textid} that is part of the Crowdflower data).  Does not apply if
-#'   \code{baseline_data = "brown"}.
+#'   `textid` that is part of the Crowdflower data).  Does not apply if
+#'   `baseline_data = "brown"`.
 #' @param baseline_word the word against which other word frequencies will be
 #'   baselined.  This defaults to "the" but can be any word found in the word
 #'   frequency tables
-#' @seealso \code{\link{data_matrix_google1grams}},
-#'   \code{\link{data_integer_brownfreq}}
+#' @seealso [data_matrix_google1grams()],
+#'   [data_integer_brownfreq()]
 #' @param ... additional arguments passed through to other functions
 #' @return a data.frame suitable for adding to variates for analysis by
-#'   \link[BradleyTerry2]{BTm}
+#'   [BTm][BradleyTerry2::BTm]
 #' @importFrom utils read.csv
 #' @importFrom quanteda tokens
 #' @export

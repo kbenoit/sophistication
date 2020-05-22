@@ -7,12 +7,12 @@
 pairs_regular_browse(pairs, filename = NULL, ...)
 }
 \arguments{
-\item{pairs}{snippet pairs created by gold object produced by \code{\link{pairs_regular_make}}}
+\item{pairs}{snippet pairs created by gold object produced by \code{\link[=pairs_regular_make]{pairs_regular_make()}}}
 
 \item{filename}{optional filename where the html output will be written; if none
 is supplied, writes to an R \link{tempfile}}
 
-\item{...}{additional arguments passed to \link[xtable]{xtable}}
+\item{...}{additional arguments passed to \link[xtable:xtable]{xtable}}
 }
 \description{
 Opens gold snippet pairs in a browser for easy inspection.

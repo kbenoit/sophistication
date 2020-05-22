@@ -18,16 +18,17 @@ Corpus of U.S. Presidential Proclamations
 }
 \note{
 To clean the texts for sentence counting, it is recommended to
-  pre-process it using the code from the example, e.g.
+pre-process it using the code from the example, e.g.
 
-  \code{example(data_corpus_pp)}
+\code{example(data_corpus_pp)}
 }
 \examples{
 \donttest{
 data(data_corpus_pp)
 patts2remove <- "^Judges|^For the \\\\w+ Ward|By the President|^[\\\\p{Lu}\\\\s]+$"
 data_corpus_pp <-
-    corpus_trimsentences(data_corpus_pp, min_length = 5, exclude_pattern = patts2remove)
+    quanteda::corpus_trimsentences(data_corpus_pp, min_length = 5, 
+                                   exclude_pattern = patts2remove)
 
 ## inspect the sentences
 # corpus_sentences_browse(data_corpus_pp)

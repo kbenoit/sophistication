@@ -22,7 +22,7 @@ covars_make(x, ...)
 covars_make_all(x, ..., dependency = TRUE, verbose = FALSE)
 }
 \arguments{
-\item{x}{snippet data from \code{\link{snippets_make}} consisting of the
+\item{x}{snippet data from \code{\link[=snippets_make]{snippets_make()}} consisting of the
 fields \code{text}, \code{docID}, and \code{snippetID}}
 
 \item{...}{arguments passed through to \code{covars_make_character}}
@@ -32,7 +32,7 @@ is \code{"text"}}
 
 \item{readability_measure}{additional readability measures passed through in
 the \code{measure} argument passed to
-\link[quanteda]{textstat_readability}. Because our standard input will be
+\link[quanteda:textstat_readability]{textstat_readability}. Because our standard input will be
 constituent elements rather than indexes, this defaults to \code{NULL}
 indicating that no compound measures will be used.}
 
@@ -50,11 +50,11 @@ the data.frame of snippets \code{x} with added variables.  Note:
 }
 \description{
 Compute additional variables to snippet data created by
-\code{\link{snippets_make}}.  These are based on tokens, types, and various
+\code{\link[=snippets_make]{snippets_make()}}.  These are based on tokens, types, and various
 readability measures.
 }
 \details{
 \code{covars_make_all} calls \code{covars_make},
-  \code{\link{covars_make_baselines}}, and \code{\link{covars_make_pos}},
-  returning them as a data.frame.
+\code{\link[=covars_make_baselines]{covars_make_baselines()}}, and \code{\link[=covars_make_pos]{covars_make_pos()}},
+returning them as a data.frame.
 }

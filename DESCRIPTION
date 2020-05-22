@@ -1,15 +1,17 @@
 Package: sophistication
 Type: Package
 Title: Functions to help measure textual sophistication
-Version: 0.65
+Version: 0.70
 Author: Kenneth Benoit [aut, cre], Arthur Spirling [aut], and Kevin Munger [aut]
 Maintainer: Kenneth Benoit <kbenoit@lse.ac.uk>
 Description: Provides functionality to calibrate and estimate measures of
-    textual sophistication and reading difficulty. Used in Benoit, Munger and
-    Spirling (2017).
+    textual sophistication and reading difficulty. Used in Benoit, Kenneth, 
+    Kevin Munger, and Arthur Spirling. (2019) "Measuring and Explaining 
+    Political Sophistication Through Textual Complexity."
+    American Journal of Political Science 63(2, April): 491–508. 
+    10.1111/ajps.12423
 Depends:
-    R (>= 3.1.0),
-    quanteda (>= 1.0.0)
+    R (>= 2.10)
 Imports:
     reshape2,
     data.table,
@@ -17,9 +19,10 @@ Imports:
     stringi,
     xtable,
     BradleyTerry2,
-    scales
+    quanteda,
+    scales,
+    spacyr
 Suggests:
-    spacyr,
     testthat,
     covr
 Remotes:
@@ -28,3 +31,4 @@ License: GPL-3
 LazyData: TRUE
 RoxygenNote: 7.1.0
 Encoding: UTF-8
+Roxygen: list(markdown = TRUE)

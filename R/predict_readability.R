@@ -2,30 +2,30 @@
 
 #' predict readability score from a fitted BT model
 #'
-#' Predicts the \eqn{lambda} for a given text in \code{newdata}, from a fitted
-#' Bradley-Terry model object \code{object}.
+#' Predicts the \eqn{lambda} for a given text in `newdata`, from a fitted
+#' Bradley-Terry model object `object`.
 #'
-#' @param object a fitted \code{\link[BradleyTerry2]{BTm}} model object
-#' @param newdata a character or  \link[quanteda]{corpus} object containing the
+#' @param object a fitted [BradleyTerry2::BTm()] model object
+#' @param newdata a character or  [corpus][quanteda::corpus] object containing the
 #'   texts whose readability values will be predicted.  If omitted, the fitted
-#'   values from \code{object} are used.
+#'   values from `object` are used.
 #' @param reference_top,reference_bottom the \eqn{lambda} values of a text
 #'   against which each predicted text will be compared for difficulty or rescaled.  The
-#'   default value for \code{reference_bottom} is the \eqn{lambda} applied to all of
-#'   \code{\link{data_corpus_fifthgrade}}, and is used as the baseline value to calculate
+#'   default value for `reference_bottom` is the \eqn{lambda} applied to all of
+#'   [data_corpus_fifthgrade()], and is used as the baseline value to calculate
 #'   the probability that a given text is easier, as well as the anchor value of 100 to which 
-#'   texts are rescaled. The default value for \code{reference_top} is the \eqn{lambda}
+#'   texts are rescaled. The default value for `reference_top` is the \eqn{lambda}
 #'   of the most difficult text in the State of the Union corpus, and is used as the anchor value 
-#'   of 0 to which texts are rescaled (See \code{f999866.csv}.)
+#'   of 0 to which texts are rescaled (See `f999866.csv`.)
 #' @param bootstrap_n number of bootstrap replicates for computing intervals
 #' @param baseline_year a scalar or vector of the baseline years to choose for
 #'   reference: a year ending in 0 from 1790-2000
-#' @param verbose logical; if \code{TRUE} print status messages
+#' @param verbose logical; if `TRUE` print status messages
 #' @return a data.frame with the rows named to the text names, and the columns
-#'   consisting of: \describe{ \item{\code{lambda}}{estimated lambda for each
-#'   text} \item{\code{prob}}{the probability that the text is easier than the
+#'   consisting of: \describe{ \item{`lambda`}{estimated lambda for each
+#'   text} \item{`prob`}{the probability that the text is easier than the
 #'   reference lambda, the default of which is \eqn{lambda} applied to all of
-#'   \code{\link{data_corpus_fifthgrade}}} \item{\code{scaled}}{a rescaled lambda on a scale of
+#'   [data_corpus_fifthgrade()]} \item{`scaled`}{a rescaled lambda on a scale of
 #'   "ease" ranging from 0-100, where 100 and 0 are determined by the fifth grade texts 
 #'   and the hardest text from the State of the Union corpus, respectively, unless
 #'   specified by the user} }

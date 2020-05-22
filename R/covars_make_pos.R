@@ -2,17 +2,17 @@
 #'
 #' Add additional variables consisting of part-of-speech (POS) frequencies to
 #' snippets.
-#' @param x snippet data from \code{\link{snippets_make}} consisting of the
-#'   fields \code{text}, \code{docID}, and \code{snippetID}
-#' @param text_field the name of the text field, if a \link{data.frame}, default
-#'   is \code{"text"}
-#' @param normalize if \code{TRUE}, convert pos tag counts to rates
-#' @param ... used to pass the \code{tagset} argument to
-#'   \code{\link[spacyr]{spacy_parse}}, for example \code{tagset = "penn"} to specify the Penn Treebank tagset scheme, instead of the Google
-#'   universal tagset default.  See \code{\link[spacyr]{spacy_parse}}.
+#' @param x snippet data from [snippets_make()] consisting of the
+#'   fields `text`, `docID`, and `snippetID`
+#' @param text_field the name of the text field, if a [data.frame], default
+#'   is `"text"`
+#' @param normalize if `TRUE`, convert pos tag counts to rates
+#' @param ... used to pass the `tagset` argument to
+#'   [spacyr::spacy_parse()], for example `tagset = "penn"` to specify the Penn Treebank tagset scheme, instead of the Google
+#'   universal tagset default.  See [spacyr::spacy_parse()].
 #' @details Note that this requires spaCy to be installed (along with Python).
 #'   See the installation instructions at
-#'   \url{http://github.com/kbenoit/spacyr}.
+#'   <http://github.com/kbenoit/spacyr>.
 #' @return the data.frame of added variables, consisting of the frequencies of
 #'   parts of speech in each text
 #' @export
@@ -43,7 +43,7 @@ covars_make_pos.data.frame <- function(x,  text_field = "text", ...) {
 }
 
 #' @rdname covars_make_pos
-#' @param dependency logical; if \code{TRUE} parse dependencies
+#' @param dependency logical; if `TRUE` parse dependencies
 #' @importFrom data.table data.table setkey setnames
 #' @import spacyr
 #' @export
@@ -52,7 +52,7 @@ covars_make_pos.character <- function(x, text_field = "text", dependency = TRUE,
         stop("you must first install spacyr to tag parts of speech")
     }
     
-    suppressMessages(spacy_initialize())
+    spacy_initialize()
     result <- spacy_parse(x, lemma = FALSE, pos = TRUE, tag = TRUE,
                           dependency = dependency, entity = TRUE)
     orig_docid <- result$doc_id

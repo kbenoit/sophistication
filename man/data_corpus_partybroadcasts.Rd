@@ -10,6 +10,6 @@
 \description{
 A corpus object UK political party broadcasts, 1961-2004, for the Labour
 and Conservative parties.  The corpus includes the following
-  document variables: \describe{ \item{party}{factor variable, \code{Lab} or \code{Con}}
-  \item{date}{Date of the broadcast (formatted as date)} }
+document variables: \describe{ \item{party}{factor variable, \code{Lab} or \code{Con}}
+\item{date}{Date of the broadcast (formatted as date)} }
 }

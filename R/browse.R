@@ -2,10 +2,10 @@
 #' inspect gold snippet pairs
 #'
 #' Opens gold snippet pairs in a browser for easy inspection.
-#' @param goldPairs a snippet gold object produced by \code{\link{pairs_gold_make}}
+#' @param goldPairs a snippet gold object produced by [pairs_gold_make()]
 #' @param filename optional filename where the html output will be written; if none
-#' is supplied, writes to an R \link{tempfile}
-#' @param ... additional arguments passed to \link[xtable]{xtable}
+#' is supplied, writes to an R [tempfile]
+#' @param ... additional arguments passed to [xtable][xtable::xtable]
 #' @importFrom xtable xtable
 #' @importFrom utils browseURL
 #' @export
@@ -34,10 +34,10 @@ pairs_gold_browse <- function(goldPairs, filename = NULL, ...) {
 #' inspect gold snippet pairs
 #'
 #' Opens gold snippet pairs in a browser for easy inspection.
-#' @param pairs snippet pairs created by gold object produced by \code{\link{pairs_regular_make}}
+#' @param pairs snippet pairs created by gold object produced by [pairs_regular_make()]
 #' @param filename optional filename where the html output will be written; if none
-#' is supplied, writes to an R \link{tempfile}
-#' @param ... additional arguments passed to \link[xtable]{xtable}
+#' is supplied, writes to an R [tempfile]
+#' @param ... additional arguments passed to [xtable][xtable::xtable]
 #' @importFrom xtable xtable
 #' @importFrom utils browseURL
 #' @export

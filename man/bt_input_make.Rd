@@ -25,7 +25,7 @@ format). One of \code{x} or \code{file} must be specified.}
 
 \item{format}{the format of the data: \describe{
 \item{\code{"chameleons"}}{similar to
-\code{\link[BradleyTerry2]{chameleons}} a list of three data frames:
+\code{\link[BradleyTerry2:chameleons]{BradleyTerry2::chameleons()}} a list of three data frames:
 \code{easier} and \code{harder}, each with a single column \code{ID} with a
 unique identifier for the snippet that won or lost, and of the same row
 dimensionality since each row corresponds to a single pairwise comparison;
@@ -33,7 +33,7 @@ and \code{predictors}, a data.frame of predictors associated with each
 \code{ID} where the row.name corresponds to an ID in the in the
 \code{easier} and \code{harder} data.frames.}
 \item{\code{"binomial"}}{similar to extended example for
-\code{\link[BradleyTerry2]{baseball}} in \code{\link[BradleyTerry2]{BTm}}.}
+\code{\link[BradleyTerry2:baseball]{BradleyTerry2::baseball()}} in \code{\link[BradleyTerry2:BTm]{BradleyTerry2::BTm()}}.}
 }}
 
 \item{remove_gold}{if \code{TRUE}, remove "gold" sentences from analysis}
@@ -43,26 +43,26 @@ analysis}
 
 \item{covars}{logical; if \code{TRUE} then add covariates for each snippet,
 taken directly from the Crowdflower saved data.  Additional arguments to
-\code{\link{covars_make}} can be passed through \code{...}}
+\code{\link[=covars_make]{covars_make()}} can be passed through \code{...}}
 
 \item{covars_baseline}{logical; if \code{TRUE}, add summary baseline
 frequencies compared to Google and Brown corpora speech computed by
-\code{\link{covars_make_baselines}}}
+\code{\link[=covars_make_baselines]{covars_make_baselines()}}}
 
 \item{covars_pos}{logical; if \code{TRUE}, add frequencies of parts of speech
-computed by \code{\link{covars_make_pos}}}
+computed by \code{\link[=covars_make_pos]{covars_make_pos()}}}
 
 \item{normalize}{if \code{TRUE} return appropriately normalized covariates,
 including parts of speech if applicable}
 
-\item{...}{additional arguments passed to \code{\link{covars_make}}}
+\item{...}{additional arguments passed to \code{\link[=covars_make]{covars_make()}}}
 }
 \value{
-a data.frame suitable for analysis by \link[BradleyTerry2]{BTm}
+a data.frame suitable for analysis by \link[BradleyTerry2:BTm]{BTm}
 }
 \description{
 Format Crowdflower results for analysis by the BradleyTerry2 package.  Can
-accept covariates computed by  \code{\link{covars_make}}.
+accept covariates computed by  \code{\link[=covars_make]{covars_make()}}.
 }
 \examples{
 # compute abilities for the BT model from CF data

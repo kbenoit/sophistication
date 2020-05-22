@@ -11,18 +11,18 @@ bootstrap_readability(x, n = 100, ..., verbose = FALSE)
 
 \item{n}{bootstrap replicates}
 
-\item{...}{additional arguments passed to \code{\link{textstat_readability}}}
+\item{...}{additional arguments passed to \code{\link[=textstat_readability]{textstat_readability()}}}
 
 \item{verbose}{if \code{TRUE} show status messages}
 }
 \value{
 list consisting of three data.frame objects: the computed values on
-  the original texts; the computed mean of the replicates; and the standard
-  deviations of the replicates
+the original texts; the computed mean of the replicates; and the standard
+deviations of the replicates
 }
 \description{
 Function to compute bootstrapped mean and SEs for readability statistics.  This is a wrapper around
-\code{\link{textstat_readability}}, that redraws the corpus using sentence-level bootstrapping from the
+\code{\link[=textstat_readability]{textstat_readability()}}, that redraws the corpus using sentence-level bootstrapping from the
 original texts.
 }
 \examples{

@@ -1,23 +1,23 @@
 #' compute text-based variables from text or snippet data
 #'
 #' Compute additional variables to snippet data created by
-#' \code{\link{snippets_make}}.  These are based on tokens, types, and various
+#' [snippets_make()].  These are based on tokens, types, and various
 #' readability measures.
-#' @param x snippet data from \code{\link{snippets_make}} consisting of the
-#'   fields \code{text}, \code{docID}, and \code{snippetID}
+#' @param x snippet data from [snippets_make()] consisting of the
+#'   fields `text`, `docID`, and `snippetID`
 #' @param readability_measure additional readability measures passed through in
-#'   the \code{measure} argument passed to
-#'   \link[quanteda]{textstat_readability}. Because our standard input will be
-#'   constituent elements rather than indexes, this defaults to \code{NULL}
+#'   the `measure` argument passed to
+#'   [textstat_readability][quanteda::textstat_readability]. Because our standard input will be
+#'   constituent elements rather than indexes, this defaults to `NULL`
 #'   indicating that no compound measures will be used.
-#' @param text_field the name of the text field, if a \link{data.frame}, default
-#'   is \code{"text"}
-#' @param normalize if \code{TRUE}, return proportions of words/sentences as
+#' @param text_field the name of the text field, if a [data.frame], default
+#'   is `"text"`
+#' @param normalize if `TRUE`, return proportions of words/sentences as
 #'   appropriate, instead of raw counts
-#' @param ... arguments passed through to \code{covars_make_character}
-#' @return the data.frame of snippets \code{x} with added variables.  Note:
+#' @param ... arguments passed through to `covars_make_character`
+#' @return the data.frame of snippets `x` with added variables.  Note:
 #'
-#' \code{W_wl.Dale.Chall} is the proportion of words \emph{not} in the Dale-Chall word list.
+#' `W_wl.Dale.Chall` is the proportion of words *not* in the Dale-Chall word list.
 #'
 #' @import stringi
 #' @importFrom data.table data.table
@@ -73,10 +73,10 @@ covars_make.character <- function(x, readability_measure = NULL, normalize = TRU
 }
 
 #' @rdname covars_make
-#' @param dependency logical; if \code{TRUE} parse dependencies
-#' @param verbose logical; if \code{TRUE} print status messages
-#' @details \code{covars_make_all} calls \code{covars_make},
-#'   \code{\link{covars_make_baselines}}, and \code{\link{covars_make_pos}},
+#' @param dependency logical; if `TRUE` parse dependencies
+#' @param verbose logical; if `TRUE` print status messages
+#' @details `covars_make_all` calls `covars_make`,
+#'   [covars_make_baselines()], and [covars_make_pos()],
 #'   returning them as a data.frame.
 #' @importFrom data.table data.table setkey
 #' @export
