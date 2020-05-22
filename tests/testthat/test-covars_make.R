@@ -1,8 +1,6 @@
 context("test covariate creation")
 
 test_that("covars_make works as expected", {
-    skip_if_not_installed("quanteda")
-    require(quanteda)
     #                                          6                           4   words
     #        1    2 3   4  5   6   7   8  9   10     1  2   3     4  5  6  7   syllables
     #                     3 + 5 + 6 + 3 + 3 + 11  +            3 + 6 + 5 + 8   characters
@@ -11,8 +9,8 @@ test_that("covars_make works as expected", {
 
     expect_equal(result$meanSentenceLength, (6 + 4)/2)
     expect_equal(result$meanWordSyllables, 17 / (6 + 4))
-    expect_equal(result$meanWordChars, sum(nchar(as.character(tokens(txt, remove_punct = TRUE)))) / (6 + 4))
-    expect_equal(result$meanSentenceChars, sum(nchar(as.character(tokens(txt, remove_punct = TRUE)))) / 2)
+    expect_equal(result$meanWordChars, sum(nchar(as.character(quanteda::tokens(txt, remove_punct = TRUE)))) / (6 + 4))
+    expect_equal(result$meanSentenceChars, sum(nchar(as.character(quanteda::tokens(txt, remove_punct = TRUE)))) / 2)
     expect_equal(result$meanSentenceSyllables, (10 + 7) / 2)
     expect_equal(result$W3Sy, 2 / 10)
     expect_equal(result$W2Sy, 5 / 10)
@@ -23,7 +21,8 @@ test_that("covars_make works as expected", {
     # note: Dale-Chall is the proportion of words NOT in the Dale-Chall list
     expect_equal(
         result$W_wl.Dale.Chall,
-        length(which(! char_tolower(as.character(tokens(txt, remove_punct = TRUE))) %in% quanteda::data_char_wordlists$dalechall)) / 10
+        length(which(! quanteda::char_tolower(as.character(quanteda::tokens(txt, remove_punct = TRUE))) %in% 
+                         quanteda::data_char_wordlists$dalechall)) / 10
     )
 })
 
@@ -73,6 +72,7 @@ test_that("pr_noun computed the same in predict v component function", {
 })
 
 test_that("paper example texts are correctly computed", {
+    library("quanteda")
     txt_clinton <- "If we do these things---end social promotion; turn around failing schools; build modern ones; support qualified teachers; promote innovation, competition and discipline - then we will begin to meet our generation's historic responsibility to create 21st century schools.  Now, we also have to do more to support the millions of parents who give their all every day at home and at work."
     txt_bush <- "And the victory of freedom in Iraq will strengthen a new ally in the war on  terror, inspire democratic reformers from Damascus to Tehran, bring more hope  and progress to a troubled region, and thereby lift a terrible threat from the  lives of our children and grandchildren.  We will succeed because the Iraqi  people value their own liberty---as they showed the world last Sunday."
     corp_example <- corpus(c(Clinton_1999 = txt_clinton, Bush_2005 = txt_bush))
@@ -102,6 +102,3 @@ test_that("paper example texts are correctly computed", {
     )
     
 })
-
-
-
