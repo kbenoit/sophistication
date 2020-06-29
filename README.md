@@ -25,6 +25,18 @@ Using the **devtools** package:
 devtools::install_github("kbenoit/sophistication")
 ```
 
+If you have a trouble with your **sophistication** installation using **devtools**, check that you have pre-installed **conda** or **mini-conda** and are using the correct version of **spacyr**. Try installing **sophistication** with the following steps:
+
+``` r
+devtools::install_github("quanteda/spacyr", build_vignettes = FALSE)
+library("spacyr")
+spacy_install()
+spacy_initialize()
+devtools::install_github("kbenoit/sophistication")
+```
+
+For more information please see the **spacyr** documentation here: https://cran.r-project.org/web/packages/spacyr/readme/README.html .
+
 ### Included Data
 
 | new name                     | original name      | description                           |
