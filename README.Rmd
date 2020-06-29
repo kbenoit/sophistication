@@ -27,7 +27,7 @@ Using the **devtools** package:
 devtools::install_github("kbenoit/sophistication")
 ```
 
-If you have a trouble with your **sophistication** installation using **devtools**, check that you have pre-installed **conda** or **mini-conda** and are using the correct version of **spacyr**. Try installing **sophistication** with the following steps:
+If you have trouble with your **sophistication** installation using **devtools**, check that you have pre-installed **conda** or **miniconda** and are using the correct version of **spacyr**. Try installing **sophistication** with the following steps:
 
 ``` {r, eval = FALSE}
 devtools::install_github("quanteda/spacyr", build_vignettes = FALSE)
