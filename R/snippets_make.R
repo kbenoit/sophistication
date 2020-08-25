@@ -28,9 +28,9 @@ snippets_make.corpus <- function(x, nsentences = 1, minchar = 100, maxchar = 350
     text <- snippetID <- docID <- completeSet <- . <- docIDnum <- NULL
     `:=` <- setkey <- .N <- .GRP <- NULL
 
-    x[["docname"]] <- docnames(x)
+    x$docname <- docnames(x)
     x <- quanteda::corpus_reshape(x, to = "sentence")
-    dt <- data.table(text = texts(x), docID = docid(x))
+    dt <- data.table(text = texts(x), docID = docvars(x, "docname"))
     # create a snippetID to be used in selecting the snippets
     dt[, snippetID := rep(1:.N, each = nsentences, length.out = .N), by = docID]
     # flag any subsets that are not at least nsentence in length
