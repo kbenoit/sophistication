@@ -28,7 +28,7 @@ snippets_make.corpus <- function(x, nsentences = 1, minchar = 100, maxchar = 350
     text <- snippetID <- docID <- completeSet <- . <- docIDnum <- NULL
     `:=` <- setkey <- .N <- .GRP <- NULL
 
-    x[["docname"]] <- docnames(x)
+    x$docname <- docnames(x)
     x <- quanteda::corpus_reshape(x, to = "sentence")
     dt <- data.table(text = texts(x), docID = docvars(x, "docname"))
     # create a snippetID to be used in selecting the snippets
