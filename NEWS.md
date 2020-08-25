@@ -1,5 +1,9 @@
 # **sophistication** changes and history
 
+## Added 0.7.x
+
+* Updated for quanteda >= 2.0
+
 ## Added 0.6.x
 
 * `covars_make_baselines()` and `predict_readability()` now have a vectorized `baseline_years` arguments, for fitting Google frequencies to specific decades.
