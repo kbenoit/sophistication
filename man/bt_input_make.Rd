@@ -21,48 +21,48 @@ bt_input_make(
 \item{x}{data.frame of results, if already loaded}
 
 \item{file}{character containing the file with the Crowdflower results (.csv
-format). One of `x` or `file` must be specified.}
+format). One of \code{x} or \code{file} must be specified.}
 
 \item{format}{the format of the data: \describe{
-\item{`"chameleons"`}{similar to
-[BradleyTerry2::chameleons()] a list of three data frames:
-`easier` and `harder`, each with a single column `ID` with a
+\item{\code{"chameleons"}}{similar to
+\code{\link[BradleyTerry2:chameleons]{BradleyTerry2::chameleons()}} a list of three data frames:
+\code{easier} and \code{harder}, each with a single column \code{ID} with a
 unique identifier for the snippet that won or lost, and of the same row
 dimensionality since each row corresponds to a single pairwise comparison;
-and `predictors`, a data.frame of predictors associated with each
-`ID` where the row.name corresponds to an ID in the in the
-`easier` and `harder` data.frames.}
-\item{`"binomial"`}{similar to extended example for
-[BradleyTerry2::baseball()] in [BradleyTerry2::BTm()].}
+and \code{predictors}, a data.frame of predictors associated with each
+\code{ID} where the row.name corresponds to an ID in the in the
+\code{easier} and \code{harder} data.frames.}
+\item{\code{"binomial"}}{similar to extended example for
+\code{\link[BradleyTerry2:baseball]{BradleyTerry2::baseball()}} in \code{\link[BradleyTerry2:BTm]{BradleyTerry2::BTm()}}.}
 }}
 
-\item{remove_gold}{if `TRUE`, remove "gold" sentences from analysis}
+\item{remove_gold}{if \code{TRUE}, remove "gold" sentences from analysis}
 
-\item{remove_screeners}{if `TRUE`, remove "screener" sentences from
+\item{remove_screeners}{if \code{TRUE}, remove "screener" sentences from
 analysis}
 
-\item{covars}{logical; if `TRUE` then add covariates for each snippet,
+\item{covars}{logical; if \code{TRUE} then add covariates for each snippet,
 taken directly from the Crowdflower saved data.  Additional arguments to
-[covars_make()] can be passed through `...`}
+\code{\link[=covars_make]{covars_make()}} can be passed through \code{...}}
 
-\item{covars_baseline}{logical; if `TRUE`, add summary baseline
+\item{covars_baseline}{logical; if \code{TRUE}, add summary baseline
 frequencies compared to Google and Brown corpora speech computed by
-[covars_make_baselines()]}
+\code{\link[=covars_make_baselines]{covars_make_baselines()}}}
 
-\item{covars_pos}{logical; if `TRUE`, add frequencies of parts of speech
-computed by [covars_make_pos()]}
+\item{covars_pos}{logical; if \code{TRUE}, add frequencies of parts of speech
+computed by \code{\link[=covars_make_pos]{covars_make_pos()}}}
 
-\item{normalize}{if `TRUE` return appropriately normalized covariates,
+\item{normalize}{if \code{TRUE} return appropriately normalized covariates,
 including parts of speech if applicable}
 
-\item{...}{additional arguments passed to [covars_make()]}
+\item{...}{additional arguments passed to \code{\link[=covars_make]{covars_make()}}}
 }
 \value{
-a data.frame suitable for analysis by [BTm][BradleyTerry2::BTm]
+a data.frame suitable for analysis by \link[BradleyTerry2:BTm]{BTm}
 }
 \description{
 Format Crowdflower results for analysis by the BradleyTerry2 package.  Can
-accept covariates computed by  [covars_make()].
+accept covariates computed by  \code{\link[=covars_make]{covars_make()}}.
 }
 \examples{
 # compute abilities for the BT model from CF data

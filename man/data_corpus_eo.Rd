@@ -5,10 +5,10 @@
 \alias{data_corpus_eo}
 \title{Corpus of Executive orders}
 \format{
-includes integer `Year`
+includes integer \code{Year}
 }
 \source{
-<http://www.presidency.ucsb.edu/executive_orders.php>
+\url{http://www.presidency.ucsb.edu/executive_orders.php}
 }
 \usage{
 data_corpus_eo

@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_dropbox.R
 \name{data_dropbox}
 \alias{data_dropbox}
-\title{load a file from the `data_pkg` Dropbox location}
+\title{load a file from the \code{data_pkg} Dropbox location}
 \usage{
 data_dropbox(object, location = paste0(getOption("ROOT_DROPBOX"), "data_pkg/"))
 }
@@ -11,13 +11,13 @@ data_dropbox(object, location = paste0(getOption("ROOT_DROPBOX"), "data_pkg/"))
 
 \item{location}{the directory where the large data objects are located.  The
 default location is set upon loading the package, by the environment
-variable `getOption("ROOT_DROPBOX")`.}
+variable \code{getOption("ROOT_DROPBOX")}.}
 }
 \value{
 loads the object into the global environment
 }
 \description{
-Loads a data file from the `data_pkg` directory from a user's Dropbox
+Loads a data file from the \code{data_pkg} directory from a user's Dropbox
 root folder.  This keeps very large data objects outside of the package, and
 off of GitHub.
 }

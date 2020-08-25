@@ -13,19 +13,19 @@ snippets_clean(
 )
 }
 \arguments{
-\item{x}{snippet data created by [snippets_make()]}
+\item{x}{snippet data created by \code{\link[=snippets_make]{snippets_make()}}}
 
 \item{readability.limits}{Two-element numeric vector used to filter out
 snippets based on readability scores.  Any snippets with values outside
 this range will be dropped.}
 
-\item{measure}{the value of `measure` passed to
-[quanteda::textstat_readability()]}
+\item{measure}{the value of \code{measure} passed to
+\code{\link[quanteda:textstat_readability]{quanteda::textstat_readability()}}}
 
-\item{verbose}{if `TRUE` output status messages}
+\item{verbose}{if \code{TRUE} output status messages}
 
 \item{...}{additional arguments passed to
-[quanteda::textstat_readability()]}
+\code{\link[quanteda:textstat_readability]{quanteda::textstat_readability()}}}
 }
 \description{
 Remove snippets that have unusual text, such as numbers.

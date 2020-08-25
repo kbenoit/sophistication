@@ -5,7 +5,7 @@
 \alias{data_corpus_SCOTUS}
 \title{Corpus of Supreme Court decisions 1790-2012}
 \source{
-<https://supreme.justia.com/>, scraped by Tom Clark.
+\url{https://supreme.justia.com/}, scraped by Tom Clark.
 }
 \description{
 All decisions written by SCOTUS justices, 1790 to 2012

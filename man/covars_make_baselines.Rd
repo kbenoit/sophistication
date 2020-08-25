@@ -29,17 +29,17 @@ covars_make_baselines(x, ...)
 
 \item{...}{additional arguments passed through to other functions}
 
-\item{text_field}{the name of the text field, if a [data.frame], default
-is `"text"`}
+\item{text_field}{the name of the text field, if a \link{data.frame}, default
+is \code{"text"}}
 
-\item{baseline_data}{`"brown"`, `"google"`, or both (the default) to indicate the
+\item{baseline_data}{\code{"brown"}, \code{"google"}, or both (the default) to indicate the
 Brown corpus data or Google n-grams data, respectively.}
 
 \item{baseline_year}{a scalar or vector of the baseline years to choose for
-reference: a year ending in 0 from 1780-2000, or `NULL` to match a
+reference: a year ending in 0 from 1780-2000, or \code{NULL} to match a
 text to its nearest year (the year information is taken from the
-`textid` that is part of the Crowdflower data).  Does not apply if
-`baseline_data = "brown"`.}
+\code{textid} that is part of the Crowdflower data).  Does not apply if
+\code{baseline_data = "brown"}.}
 
 \item{baseline_word}{the word against which other word frequencies will be
 baselined.  This defaults to "the" but can be any word found in the word
@@ -47,7 +47,7 @@ frequency tables}
 }
 \value{
 a data.frame suitable for adding to variates for analysis by
-  [BTm][BradleyTerry2::BTm]
+\link[BradleyTerry2:BTm]{BTm}
 }
 \description{
 Computes the mean frequencies of terms in a text based on closest match to
@@ -73,6 +73,6 @@ head(bt_input_make(file = "data/CF_results/f921916.csv",
 
 }
 \seealso{
-[data_matrix_google1grams()],
-  [data_integer_brownfreq()]
+\code{\link[=data_matrix_google1grams]{data_matrix_google1grams()}},
+\code{\link[=data_integer_brownfreq]{data_integer_brownfreq()}}
 }

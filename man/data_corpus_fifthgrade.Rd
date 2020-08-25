@@ -5,7 +5,7 @@
 \alias{data_corpus_fifthgrade}
 \title{Corpus of fifth grade texts}
 \source{
-<https://www.ncsu.edu/project/lancet/fifth.htm>
+\url{https://www.ncsu.edu/project/lancet/fifth.htm}
 }
 \description{
 A corpus object of articles taken from a repository of fifth-grade texts

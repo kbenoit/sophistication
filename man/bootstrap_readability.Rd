@@ -7,22 +7,22 @@
 bootstrap_readability(x, n = 100, ..., verbose = FALSE)
 }
 \arguments{
-\item{x}{character or [corpus] input object for which readability will be computed}
+\item{x}{character or \link{corpus} input object for which readability will be computed}
 
 \item{n}{bootstrap replicates}
 
-\item{...}{additional arguments passed to [textstat_readability()]}
+\item{...}{additional arguments passed to \code{\link[=textstat_readability]{textstat_readability()}}}
 
-\item{verbose}{if `TRUE` show status messages}
+\item{verbose}{if \code{TRUE} show status messages}
 }
 \value{
 list consisting of three data.frame objects: the computed values on
-  the original texts; the computed mean of the replicates; and the standard
-  deviations of the replicates
+the original texts; the computed mean of the replicates; and the standard
+deviations of the replicates
 }
 \description{
 Function to compute bootstrapped mean and SEs for readability statistics.  This is a wrapper around
-[textstat_readability()], that redraws the corpus using sentence-level bootstrapping from the
+\code{\link[=textstat_readability]{textstat_readability()}}, that redraws the corpus using sentence-level bootstrapping from the
 original texts.
 }
 \examples{

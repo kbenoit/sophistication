@@ -20,20 +20,20 @@ pairs_gold_make(
 
 \item{n.pairs}{how many gold pairs to form}
 
-\item{metric}{measure from [quanteda::textstat_readability()] to use to
-compute difference, default is `"Flesch"`}
+\item{metric}{measure from \code{\link[quanteda:textstat_readability]{quanteda::textstat_readability()}} to use to
+compute difference, default is \code{"Flesch"}}
 
 \item{min.diff.quantile}{use this quantile range of difference in the metric
 only.  This is a relative measure that defaults to the upper and lower
-deciles: `c(.1, .9))`}
+deciles: \verb{c(.1, .9))}}
 
 \item{min.diff.absolute}{form gold pairs with only at least this absolute
 value difference in the readability measures of the two texts.  Only one of
-`min.diff.quantile` and `min.diff.absolute` may be specified.}
+\code{min.diff.quantile} and \code{min.diff.absolute} may be specified.}
 
-\item{screeners}{if `TRUE`, add screener text with random instructions}
+\item{screeners}{if \code{TRUE}, add screener text with random instructions}
 
-\item{verbose}{if `TRUE`, output status messages during processing}
+\item{verbose}{if \code{TRUE}, output status messages during processing}
 
 \item{seed}{seed to use for random procedures; set this to ensure
 replicability}

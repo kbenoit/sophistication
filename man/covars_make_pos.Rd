@@ -25,23 +25,23 @@ covars_make_pos(x, ...)
 )
 }
 \arguments{
-\item{x}{snippet data from [snippets_make()] consisting of the
-fields `text`, `docID`, and `snippetID`}
+\item{x}{snippet data from \code{\link[=snippets_make]{snippets_make()}} consisting of the
+fields \code{text}, \code{docID}, and \code{snippetID}}
 
-\item{...}{used to pass the `tagset` argument to
-[spacyr::spacy_parse()], for example `tagset = "penn"` to specify the Penn Treebank tagset scheme, instead of the Google
-universal tagset default.  See [spacyr::spacy_parse()].}
+\item{...}{used to pass the \code{tagset} argument to
+\code{\link[spacyr:spacy_parse]{spacyr::spacy_parse()}}, for example \code{tagset = "penn"} to specify the Penn Treebank tagset scheme, instead of the Google
+universal tagset default.  See \code{\link[spacyr:spacy_parse]{spacyr::spacy_parse()}}.}
 
-\item{text_field}{the name of the text field, if a [data.frame], default
-is `"text"`}
+\item{text_field}{the name of the text field, if a \link{data.frame}, default
+is \code{"text"}}
 
-\item{dependency}{logical; if `TRUE` parse dependencies}
+\item{dependency}{logical; if \code{TRUE} parse dependencies}
 
-\item{normalize}{if `TRUE`, convert pos tag counts to rates}
+\item{normalize}{if \code{TRUE}, convert pos tag counts to rates}
 }
 \value{
 the data.frame of added variables, consisting of the frequencies of
-  parts of speech in each text
+parts of speech in each text
 }
 \description{
 Add additional variables consisting of part-of-speech (POS) frequencies to
@@ -49,8 +49,8 @@ snippets.
 }
 \details{
 Note that this requires spaCy to be installed (along with Python).
-  See the installation instructions at
-  <http://github.com/kbenoit/spacyr>.
+See the installation instructions at
+\url{http://github.com/kbenoit/spacyr}.
 }
 \examples{
 \dontrun{
