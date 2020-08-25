@@ -22,39 +22,39 @@ covars_make(x, ...)
 covars_make_all(x, ..., dependency = TRUE, verbose = FALSE)
 }
 \arguments{
-\item{x}{snippet data from \code{\link[=snippets_make]{snippets_make()}} consisting of the
-fields \code{text}, \code{docID}, and \code{snippetID}}
+\item{x}{snippet data from [snippets_make()] consisting of the
+fields `text`, `docID`, and `snippetID`}
 
-\item{...}{arguments passed through to \code{covars_make_character}}
+\item{...}{arguments passed through to `covars_make_character`}
 
-\item{text_field}{the name of the text field, if a \link{data.frame}, default
-is \code{"text"}}
+\item{text_field}{the name of the text field, if a [data.frame], default
+is `"text"`}
 
 \item{readability_measure}{additional readability measures passed through in
-the \code{measure} argument passed to
-\link[quanteda:textstat_readability]{textstat_readability}. Because our standard input will be
-constituent elements rather than indexes, this defaults to \code{NULL}
+the `measure` argument passed to
+[textstat_readability][quanteda::textstat_readability]. Because our standard input will be
+constituent elements rather than indexes, this defaults to `NULL`
 indicating that no compound measures will be used.}
 
-\item{normalize}{if \code{TRUE}, return proportions of words/sentences as
+\item{normalize}{if `TRUE`, return proportions of words/sentences as
 appropriate, instead of raw counts}
 
-\item{dependency}{logical; if \code{TRUE} parse dependencies}
+\item{dependency}{logical; if `TRUE` parse dependencies}
 
-\item{verbose}{logical; if \code{TRUE} print status messages}
+\item{verbose}{logical; if `TRUE` print status messages}
 }
 \value{
-the data.frame of snippets \code{x} with added variables.  Note:
+the data.frame of snippets `x` with added variables.  Note:
 
-\code{W_wl.Dale.Chall} is the proportion of words \emph{not} in the Dale-Chall word list.
+`W_wl.Dale.Chall` is the proportion of words *not* in the Dale-Chall word list.
 }
 \description{
 Compute additional variables to snippet data created by
-\code{\link[=snippets_make]{snippets_make()}}.  These are based on tokens, types, and various
+[snippets_make()].  These are based on tokens, types, and various
 readability measures.
 }
 \details{
-\code{covars_make_all} calls \code{covars_make},
-\code{\link[=covars_make_baselines]{covars_make_baselines()}}, and \code{\link[=covars_make_pos]{covars_make_pos()}},
-returning them as a data.frame.
+`covars_make_all` calls `covars_make`,
+  [covars_make_baselines()], and [covars_make_pos()],
+  returning them as a data.frame.
 }

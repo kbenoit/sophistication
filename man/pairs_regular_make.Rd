@@ -9,7 +9,7 @@ pairs_regular_make(x, n.sample = NULL, n.pairs = nrow(x) - 1, seed = NULL)
 \arguments{
 \item{x}{snippet data.frame}
 
-\item{n.sample}{subset of observations of \code{x} to sample before forming
+\item{n.sample}{subset of observations of `x` to sample before forming
 pairwise comparisons}
 
 \item{n.pairs}{number of pairwise comparisons to form}
@@ -19,15 +19,15 @@ replicability}
 }
 \value{
 data.frame of paired snippets, consisting of the elements
-\code{text1}, \code{docID1}, \code{snippetID1}, \code{text2},
-\code{docID2}, and \code{snippetID2}.
+  `text1`, `docID1`, `snippetID1`, `text2`,
+  `docID2`, and `snippetID2`.
 }
 \description{
 Form pairs of snippets for comparison.  By default, form the simple chained
-minimum-spannning tree of (\emph{n} - 1), where \emph{n} is the number
-snippets, and each snippet is paired with its neighbour.  If \code{n.pairs} >
-\emph{n}, then randomly form addition pairs not already in the MST, where
+minimum-spannning tree of (*n* - 1), where *n* is the number
+snippets, and each snippet is paired with its neighbour.  If `n.pairs` >
+*n*, then randomly form addition pairs not already in the MST, where
 pairs are combinations without respect to order.  Note that the maximum
-number of unique pairings is the combination \emph{n} choose 2, or
-\emph{n}(\emph{n} - 1)/2.
+number of unique pairings is the combination *n* choose 2, or
+*n*(*n* - 1)/2.
 }

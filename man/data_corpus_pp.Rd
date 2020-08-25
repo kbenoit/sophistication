@@ -5,10 +5,10 @@
 \alias{data_corpus_pp}
 \title{Corpus of U.S. Presidential Proclamations}
 \format{
-Includes one docvar, \code{Year}.
+Includes one docvar, `Year`.
 }
 \source{
-The American Presidency Project, \url{http://www.presidency.ucsb.edu/sou.php}.
+The American Presidency Project, <http://www.presidency.ucsb.edu/sou.php>.
 }
 \usage{
 data_corpus_pp
@@ -18,9 +18,9 @@ Corpus of U.S. Presidential Proclamations
 }
 \note{
 To clean the texts for sentence counting, it is recommended to
-pre-process it using the code from the example, e.g.
+  pre-process it using the code from the example, e.g.
 
-\code{example(data_corpus_pp)}
+  `example(data_corpus_pp)`
 }
 \examples{
 \donttest{

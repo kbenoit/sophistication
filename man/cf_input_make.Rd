@@ -14,7 +14,7 @@ upload to CF}
 }
 \value{
 Returns an invisible copy of the data.frame also written to
-\code{filename} in .csv format.
+  `filename` in .csv format.
 }
 \description{
 Prepare a dataset for uploading to CrowdFlower, output as a
