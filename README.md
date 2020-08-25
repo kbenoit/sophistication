@@ -1,15 +1,15 @@
 <!--
 ![Downloads](http://cranlogs.r-pkg.org/badges/sophistication)
 -->
+<!-- badges: start -->
 
 [![CRAN
 Version](http://www.r-pkg.org/badges/version/sophistication)](http://cran.r-project.org/package=sophistication)
-[![Travis-CI Build
-Status](https://travis-ci.org/kbenoit/sophistication.svg?branch=master)](https://travis-ci.org/kbenoit/sophistication)
-[![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/kbenoit/sophistication?branch=master&svg=true)](https://ci.appveyor.com/project/kbenoit/sophistication)
+[![R build
+status](https://github.com/kbenoit/sophistication/workflows/R-CMD-check/badge.svg)](https://github.com/kbenoit/sophistication/actions)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/kbenoit/sophistication/master.svg)](https://codecov.io/github/kbenoit/sophistication?branch=master)
+<!-- badges: end -->
 
 Code for use in measuring the sophistication of political text
 --------------------------------------------------------------

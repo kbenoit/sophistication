@@ -5,3 +5,4 @@ package_analysis.*
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^codecov\.yml$
+^\.github$
