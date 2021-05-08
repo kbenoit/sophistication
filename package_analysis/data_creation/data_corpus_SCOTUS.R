@@ -18,13 +18,13 @@ data_corpus_SCOTUS <- corpus(ops.df$text,
 data_corpus_SCOTUS <- corpus_subset(data_corpus_SCOTUS, ntoken(data_corpus_SCOTUS) > 0)
 
 ## clean up things that will mess up the sentence segmentation
-texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_regex(texts(data_corpus_SCOTUS), "A.\\w{0,1}D.", "AD")
-texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_fixed(texts(data_corpus_SCOTUS), " v.", "v")
-texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_fixed(texts(data_corpus_SCOTUS), " c.", "c")
+texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_regex(as.character(data_corpus_SCOTUS), "A.\\w{0,1}D.", "AD")
+texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_fixed(as.character(data_corpus_SCOTUS), " v.", "v")
+texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_fixed(as.character(data_corpus_SCOTUS), " c.", "c")
 # for things like "GO.", "TH.", "J."
-texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_regex(texts(data_corpus_SCOTUS), "(\\p{Lu}{1,2})\\.", "$1")
+texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_regex(as.character(data_corpus_SCOTUS), "(\\p{Lu}{1,2})\\.", "$1")
 # for enumerations followed by ., such as 2. 3. etc
-texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_regex(texts(data_corpus_SCOTUS), "(\\d{1,2})\\.", "$1) ")
+texts(data_corpus_SCOTUS) <- stringi::stri_replace_all_regex(as.character(data_corpus_SCOTUS), "(\\d{1,2})\\.", "$1) ")
 
 devtools::use_data(data_corpus_SCOTUS, overwrite = TRUE)
 

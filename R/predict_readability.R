@@ -43,7 +43,7 @@
 #' ## 100034 -3.289739 0.24723716 60.76252
 #' ## 100045 -2.780185 0.35346383 78.71976
 #'
-#' txts <- c(fifthgrade = paste(texts(data_corpus_fifthgrade), collapse = "  "),
+#' txts <- c(fifthgrade = paste(as.character(data_corpus_fifthgrade), collapse = "  "),
 #'           data_corpus_inaugural[c(1:2, 9:10, 54:58)])
 #' predict_readability(data_BTm_bms, newdata = txts)
 #' ##                    lambda       prob    scaled
@@ -138,7 +138,7 @@ predict_readability.BTm <- function(object, newdata = NULL,
     } else {
         if (verbose) message("; ", deparse(substitute(newdata)), " as newdata")
         # otherwise compute covars on newdata supplied as character or corpus
-        if (is.corpus(newdata)) newdata <- texts(newdata)
+        if (is.corpus(newdata)) newdata <- as.character(newdata)
         if (is.character(newdata)) {
             newdata_docnames <- names(newdata)
             newdata <- get_covars_from_newdata(newdata, bootstrap_n, 
@@ -269,7 +269,7 @@ get_covars_new.corpus <- function(x, baseline_year = 2000, verbose = FALSE) {
     suppressMessages(
         spacyr::spacy_initialize()
     )
-    result <- data.table(spacyr::spacy_parse(texts(x), tag = FALSE, lemma = FALSE, entity = FALSE, dependency = FALSE))
+    result <- data.table(spacyr::spacy_parse(as.character(x), tag = FALSE, lemma = FALSE, entity = FALSE, dependency = FALSE))
     # remove punctuation
     result <- result[pos != "PUNCT" & pos != "SPACE"]
     

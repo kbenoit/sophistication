@@ -101,6 +101,5 @@ BTmodel3 <- BTm(player1 = easier, player2 = harder,
                  id = "ID", data = inputdata3)
 BTabils3 <- BTabilities(BTmodel3)
 head(BTabils3[order(BTabils3[, 1], decreasing = TRUE), ], 10)
-
 }
 }

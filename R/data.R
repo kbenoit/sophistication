@@ -57,8 +57,8 @@ NULL
 #' data(data_corpus_pp)
 #' patts2remove <- "^Judges|^For the \\w+ Ward|By the President|^[\\p{Lu}\\s]+$"
 #' data_corpus_pp <-
-#'     quanteda::corpus_trimsentences(data_corpus_pp, min_length = 5, 
-#'                                    exclude_pattern = patts2remove)
+#'    quanteda::corpus_trim(data_corpus_pp, what = "sentences", min_ntoken = 5, 
+#'                          exclude_pattern = patts2remove)
 #'
 #' ## inspect the sentences
 #' # corpus_sentences_browse(data_corpus_pp)

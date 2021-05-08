@@ -7,7 +7,7 @@
 #'   fields `text`, `docID`, and `snippetID`
 #' @param readability_measure additional readability measures passed through in
 #'   the `measure` argument passed to
-#'   [textstat_readability][quanteda::textstat_readability]. Because our standard input will be
+#'   [quanteda.textstats::textstat_readability]. Because our standard input will be
 #'   constituent elements rather than indexes, this defaults to `NULL`
 #'   indicating that no compound measures will be used.
 #' @param text_field the name of the text field, if a [data.frame], default
@@ -42,10 +42,11 @@ covars_make.data.frame <- function(x, text_field = "text", ...) {
 #' @rdname covars_make
 #' @export
 covars_make.corpus <- function(x, ...) {
-    covars_make(texts(x), ...)
+    covars_make(as.character(x), ...)
 }
 
 #' @rdname covars_make
+#' @importFrom quanteda.textstats textstat_readability
 #' @export
 covars_make.character <- function(x, readability_measure = NULL, normalize = TRUE, ...) {
     # include Dale.Chall?
@@ -55,7 +56,7 @@ covars_make.character <- function(x, readability_measure = NULL, normalize = TRU
                                     "meanWordSyllables", 
                                     "Dale.Chall.old", readability_measure))
     # return the data frame plus the computed variables
-    result <- quanteda::textstat_readability(x, measure = readability_measure, intermediate = TRUE)
+    result <- textstat_readability(x, measure = readability_measure, intermediate = TRUE)
     # eliminate Dale.Chall.old if was not in readability_measure
     if (!dc) result[["Dale.Chall.old"]] <- NULL
     # remove document field

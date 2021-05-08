@@ -62,7 +62,7 @@ covars_make_baselines.data.frame <- function(x, text_field = "text", ...) {
 #' @rdname covars_make_baselines
 #' @export
 covars_make_baselines.corpus <- function(x, ...) {
-    covars_make_baselines(texts(x), ...)
+    covars_make_baselines(as.character(x), ...)
 }
 
 #' @rdname covars_make_baselines

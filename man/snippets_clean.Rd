@@ -20,12 +20,12 @@ snippets based on readability scores.  Any snippets with values outside
 this range will be dropped.}
 
 \item{measure}{the value of \code{measure} passed to
-\code{\link[quanteda:textstat_readability]{quanteda::textstat_readability()}}}
+\code{\link[quanteda.textstats:textstat_readability]{quanteda.textstats::textstat_readability()}}}
 
 \item{verbose}{if \code{TRUE} output status messages}
 
 \item{...}{additional arguments passed to
-\code{\link[quanteda:textstat_readability]{quanteda::textstat_readability()}}}
+\code{\link[quanteda.textstats:textstat_readability]{quanteda.textstats::textstat_readability()}}}
 }
 \description{
 Remove snippets that have unusual text, such as numbers.

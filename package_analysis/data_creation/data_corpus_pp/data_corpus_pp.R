@@ -14,11 +14,11 @@ docvars(data_corpus_pp, "Year") <- as.integer(substring(docnames(data_corpus_pp)
 data_corpus_pp <- corpus_subset(data_corpus_pp, ntoken(data_corpus_pp) > 0)
 
 ## clean up things that will mess up the sentence segmentation
-texts(data_corpus_pp) <- stringi::stri_replace_all_regex(texts(data_corpus_pp), "A.\\w{0,1}D.", "AD")
+texts(data_corpus_pp) <- stringi::stri_replace_all_regex(as.character(data_corpus_pp), "A.\\w{0,1}D.", "AD")
 # for things like "GO.", "TH.", "J."
-texts(data_corpus_pp) <- stringi::stri_replace_all_regex(texts(data_corpus_pp), "(\\p{Lu}{1,2})\\.", "$1")
+texts(data_corpus_pp) <- stringi::stri_replace_all_regex(as.character(data_corpus_pp), "(\\p{Lu}{1,2})\\.", "$1")
 # for enumerations followed by ., such as 2. 3. etc
-texts(data_corpus_pp) <- stringi::stri_replace_all_regex(texts(data_corpus_pp), "(\\d{1,2})\\.", "$1) ")
+texts(data_corpus_pp) <- stringi::stri_replace_all_regex(as.character(data_corpus_pp), "(\\d{1,2})\\.", "$1) ")
 
 ## save the corpus
 devtools::use_data(data_corpus_pp, overwrite = TRUE)

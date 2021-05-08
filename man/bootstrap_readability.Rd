@@ -11,7 +11,7 @@ bootstrap_readability(x, n = 100, ..., verbose = FALSE)
 
 \item{n}{bootstrap replicates}
 
-\item{...}{additional arguments passed to \code{\link[=textstat_readability]{textstat_readability()}}}
+\item{...}{additional arguments passed to \code{\link[quanteda.textstats:textstat_readability]{quanteda.textstats::textstat_readability()}}}
 
 \item{verbose}{if \code{TRUE} show status messages}
 }
@@ -22,7 +22,7 @@ deviations of the replicates
 }
 \description{
 Function to compute bootstrapped mean and SEs for readability statistics.  This is a wrapper around
-\code{\link[=textstat_readability]{textstat_readability()}}, that redraws the corpus using sentence-level bootstrapping from the
+\code{\link[quanteda.textstats:textstat_readability]{quanteda.textstats::textstat_readability()}}, that redraws the corpus using sentence-level bootstrapping from the
 original texts.
 }
 \examples{

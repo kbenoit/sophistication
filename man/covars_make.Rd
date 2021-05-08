@@ -32,7 +32,7 @@ is \code{"text"}}
 
 \item{readability_measure}{additional readability measures passed through in
 the \code{measure} argument passed to
-\link[quanteda:textstat_readability]{textstat_readability}. Because our standard input will be
+\link[quanteda.textstats:textstat_readability]{quanteda.textstats::textstat_readability}. Because our standard input will be
 constituent elements rather than indexes, this defaults to \code{NULL}
 indicating that no compound measures will be used.}
 

@@ -1,10 +1,10 @@
 #' compute bootstrapped SEs for readability statistics
 #'
 #' Function to compute bootstrapped mean and SEs for readability statistics.  This is a wrapper around
-#' [textstat_readability()], that redraws the corpus using sentence-level bootstrapping from the
+#' [quanteda.textstats::textstat_readability()], that redraws the corpus using sentence-level bootstrapping from the
 #' original texts.
 #' @param x character or [corpus] input object for which readability will be computed
-#' @param ... additional arguments passed to [textstat_readability()]
+#' @param ... additional arguments passed to [quanteda.textstats::textstat_readability()]
 #' @param n bootstrap replicates
 #' @param verbose if `TRUE` show status messages
 #' @return list consisting of three data.frame objects: the computed values on
@@ -29,6 +29,7 @@ bootstrap_readability.character <- function(x, n = 100, ..., verbose = FALSE) {
 
 #' @noRd
 #' @export
+#' @importFrom quanteda.textstats textstat_readability
 bootstrap_readability.corpus <- function(x, n = 100, ..., verbose = FALSE) {
     if (verbose)
         message("Bootstrapping readability statistics for ", ndoc(x), " documents:")
@@ -56,7 +57,7 @@ bootstrap_readability.corpus <- function(x, n = 100, ..., verbose = FALSE) {
         message("   ...computing values from bootstrapped replicates\n     ", appendLF = FALSE)
     for (i in seq_len(n)) {
         message(" ", i, appendLF = FALSE)
-        x_recombined <- corpus_reshape(corpus_sample(x_sentences, replace = TRUE, by = "_document"), to = "documents")
+        x_recombined <- corpus_reshape(corpus_sample(x_sentences, replace = TRUE, by = docid(x_sentences)), to = "documents")
         replicates_array[, , i] <- as.matrix(textstat_readability(x_recombined, ...)[, -1])
     }
     message("")

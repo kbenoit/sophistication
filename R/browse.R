@@ -81,8 +81,8 @@ corpus_sentences_browse.corpus <- function(x, n = 1000) {
 
     temp_corpus_sentences <- corpus_reshape(x, to = "sentences")
     df <- data.frame(
-        sentences = texts(temp_corpus_sentences),
-        document = metadoc(temp_corpus_sentences, "document")
+        sentences = as.character(temp_corpus_sentences),
+        document = docid(temp_corpus_sentences)
     )
 
     temp_xtable <- xtable::xtable(df[1:n, ])

@@ -4,7 +4,7 @@
 #' readability is the most different between pairs.
 #' @param x snippet pairs
 #' @param n.pairs how many gold pairs to form
-#' @param metric measure from [quanteda::textstat_readability()] to use to
+#' @param metric measure from [quanteda.textstats::textstat_readability()] to use to
 #'   compute difference, default is `"Flesch"`
 #' @param min.diff.quantile use this quantile range of difference in the metric
 #'   only.  This is a relative measure that defaults to the upper and lower
@@ -19,6 +19,7 @@
 #' @return a data.frame of gold pairings, with reasons
 #' @importFrom stats quantile
 #' @importFrom data.table setorder
+#' @importFrom quanteda.textstats textstat_readability
 #' @export
 pairs_gold_make <- function(x, n.pairs, metric = "Flesch", min.diff.quantile = c(.1, .9),
                      min.diff.absolute = NULL, screeners = FALSE, verbose = TRUE, seed = NULL) {

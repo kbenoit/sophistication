@@ -34,7 +34,7 @@ covars_make_pos.snippet <- function(x, ...) {
 #' @rdname covars_make_pos
 #' @export
 covars_make_pos.corpus <- function(x, ...) {
-    covars_make_pos(texts(x), ...)
+    covars_make_pos(as.character(x), ...)
 }
 #' @rdname covars_make_pos
 #' @export

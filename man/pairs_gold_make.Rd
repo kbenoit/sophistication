@@ -20,7 +20,7 @@ pairs_gold_make(
 
 \item{n.pairs}{how many gold pairs to form}
 
-\item{metric}{measure from \code{\link[quanteda:textstat_readability]{quanteda::textstat_readability()}} to use to
+\item{metric}{measure from \code{\link[quanteda.textstats:textstat_readability]{quanteda.textstats::textstat_readability()}} to use to
 compute difference, default is \code{"Flesch"}}
 
 \item{min.diff.quantile}{use this quantile range of difference in the metric

@@ -22,7 +22,7 @@ test_that("covars_make works as expected", {
     expect_equal(
         result$W_wl.Dale.Chall,
         length(which(! quanteda::char_tolower(as.character(quanteda::tokens(txt, remove_punct = TRUE))) %in% 
-                         quanteda::data_char_wordlists$dalechall)) / 10
+                         quanteda.textstats::data_char_wordlists$dalechall)) / 10
     )
 })
 

@@ -73,7 +73,6 @@
 #'                  id = "ID", data = inputdata3)
 #' BTabils3 <- BTabilities(BTmodel3)
 #' head(BTabils3[order(BTabils3[, 1], decreasing = TRUE), ], 10)
-#'
 #' }
 bt_input_make <- function(x = NULL, file = NULL, format = c("chameleons", "binomial"),
                      remove_gold = TRUE, remove_screeners = remove_gold, covars = FALSE,

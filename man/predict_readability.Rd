@@ -62,7 +62,7 @@ head(predict_readability(data_BTm_bms))
 ## 100034 -3.289739 0.24723716 60.76252
 ## 100045 -2.780185 0.35346383 78.71976
 
-txts <- c(fifthgrade = paste(texts(data_corpus_fifthgrade), collapse = "  "),
+txts <- c(fifthgrade = paste(as.character(data_corpus_fifthgrade), collapse = "  "),
           data_corpus_inaugural[c(1:2, 9:10, 54:58)])
 predict_readability(data_BTm_bms, newdata = txts)
 ##                    lambda       prob    scaled
